@@ -1,5 +1,5 @@
 ---
-import ConsentBanner from '../components/ConsentBanner.astro';
+import TelemetryInit from '../components/TelemetryInit.astro';
 ---
 
 <!doctype html>
@@ -39,9 +39,6 @@ import ConsentBanner from '../components/ConsentBanner.astro';
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <slot />
-    
-    <!-- Consent Banner - loads last for minimal CLS -->
-    <ConsentBanner />
+<slot />
+    <TelemetryInit />
   </body>
-</html>
