@@ -158,3 +158,38 @@ a:hover {
   border-color: var(--action-primary);
   color: var(--action-primary);
 }
+
+/* =========================================================
+   Focus States (Accessibility)
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--action-primary);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--action-primary);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* =========================================================
+   Button States (Active + Disabled)
+   ========================================================= */
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.page-pad-top {
+  padding-top: 3rem;
+}
