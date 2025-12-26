@@ -15,6 +15,36 @@ import Tier2Telemetry from '../components/Tier2Telemetry.astro';
 
 <Layout>
   <main class="tier2-main" data-nt-page="dcs_diagnostic">
+    <form id="dcs-diagnostic-form"
+  name="dcs-diagnostic"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  action="/dcs-diagnostic/thank-you/"
+>
+  <input type="hidden" name="form-name" value="dcs-diagnostic" />
+  <p class="sr-only">
+    <label>Do not fill: <input name="bot-field" /></label>
+  </p>
+
+  <label>
+    Website
+    <input name="website" type="url" required />
+  </label>
+
+  <label>
+    Name
+    <input name="name" type="text" required />
+  </label>
+
+  <label>
+    Email
+    <input name="email" type="email" required />
+  </label>
+
+  <button type="submit">Run Diagnostic</button>
+</form>
+    
 
     <!-- Section 1: Symptoms -->
     <section class="tier2-section" data-nt-section="symptoms" data-nt-track="nt_symptoms_view">
@@ -112,19 +142,74 @@ import Tier2Telemetry from '../components/Tier2Telemetry.astro';
       <div class="tier2-container">
         <h2 class="tier2-h2">Ready to See What Machines See?</h2>
         <p class="tier2-lead">15 minutes. No pitch. Just clarity.</p>
-        <button
-          type="button"
-          class="tier2-btn"
-          data-nt-event="cta_primary"
-          data-nt-cta-id="start_diagnostic"
-          data-nt-cta-location="tier2_footer"
-        >
-          Start Your DCS Diagnostic
-        </button>
+        <a
+  href="#dcs-diagnostic-form"
+  class="tier2-btn"
+  data-nt-event="cta_primary"
+  data-nt-cta-id="start_diagnostic"
+  data-nt-cta-location="tier2_footer"
+>
+  Start Your DCS Diagnostic
+</a>
+
       </div>
     </section>
 
-  </main>
+<script is:inline>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+
+  var TIMEOUT_MS = 3000;
+  var POLL_MS = 50;
+  var elapsed = 0;
+
+  var once = function (key, fn) {
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    } catch (e) {}
+    fn();
+  };
+
+  var fire = function () {
+    once("nt_dcs_diag_view", function () {
+      window.dataLayer.push({
+        event: "nt_dcs_diag_view",
+        nt_event_source: "tier2",
+        page_path: location.pathname,
+        page_title: document.title
+      });
+    });
+  };
+
+  var hasSystemReady = function () {
+  try {
+    for (var i = window.dataLayer.length - 1; i >= 0; i--) {
+      if (window.dataLayer[i] && window.dataLayer[i].event === "nt_system_ready") return true;
+    }
+  } catch (e) {}
+  return false;
+};
+
+var wait = function () {
+  if (hasSystemReady()) {
+    fire();
+    return;
+  }
+  if (elapsed < TIMEOUT_MS) {
+      elapsed += POLL_MS;
+      setTimeout(wait, POLL_MS);
+    } else {
+      console.warn('[DIOS] nt_dcs_diag_view: readiness timeout (3000ms) — event not fired');
+    }
+};
+
+wait();
+
+})();
+</script>
+
+</main>
 
   <Tier2Telemetry />
 </Layout>

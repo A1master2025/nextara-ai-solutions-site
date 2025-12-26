@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <h1>Request received</h1>
+    <p>We’ll follow up shortly</p>
+
+    <script is:inline>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+
+        var TIMEOUT_MS = 3000;
+        var POLL_MS = 50;
+        var elapsed = 0;
+
+        var once = function (key, fn) {
+          try {
+            if (sessionStorage.getItem(key)) return;
+            sessionStorage.setItem(key, "1");
+          } catch (e) {}
+          fn();
+        };
+
+        var fire = function () {
+          once("nt_dcs_diag_submit_success", function () {
+            window.dataLayer.push({
+              event: "nt_dcs_diag_submit_success",
+              nt_event_source: "tier2",
+              form_name: "dcs-diagnostic",
+              page_path: location.pathname,
+              page_title: document.title
+            });
+          });
+        };
+
+        var poll = function () {
+          if (window.__NT_SYSTEM_READY_EMITTED__) {
+            fire();
+            return;
+          }
+          if (elapsed < TIMEOUT_MS) {
+        elapsed += POLL_MS;
+        setTimeout(poll, POLL_MS);
+      } else {
+        console.warn('[DIOS] nt_dcs_diag_submit_success: readiness timeout (3000ms) — event not fired');
+      }
+        };
+
+        poll();
+      })();
+    </script>
+  </main>
+</Layout>
