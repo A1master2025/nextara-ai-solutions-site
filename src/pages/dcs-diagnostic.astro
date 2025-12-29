@@ -1,73 +1,4 @@
 ---
-<<<<<<< HEAD
-/**
- * src/pages/dcs-diagnostic.astro
- * Tier-2 DCS Diagnostic
- *
- * Critical behavior:
- * - Native form POST is intercepted (prevents POST->/thank-you/ 404 + GTM Preview drop)
- * - Netlify Forms submission via fetch("/") using x-www-form-urlencoded
- * - Redirect to /dcs-diagnostic/thank-you/ via GET (preserves GTM preview querystring)
- * - View telemetry: nt_dcs_diag_view (gated by nt_system_ready, session dedupe)
- */
-import Layout from '../layouts/Layout.astro';
-import Tier2Telemetry from '../components/Tier2Telemetry.astro';
----
-
-<Layout>
-  <main class="tier2-main" data-nt-page="dcs_diagnostic">
-    <!-- DCS Diagnostic Form (Netlify Forms) -->
-    <form
-      id="dcs-diagnostic-form"
-      name="dcs-diagnostic"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      action="/dcs-diagnostic/thank-you/"
-    >
-      <input type="hidden" name="form-name" value="dcs-diagnostic" />
-
-      <p class="sr-only" aria-hidden="true">
-        <label>
-          Do not fill:
-          <input name="bot-field" tabindex="-1" autocomplete="off" />
-        </label>
-      </p>
-
-      <label>
-        Website
-        <input name="website" type="url" autocomplete="url" required />
-      </label>
-
-      <label>
-        Name
-        <input name="name" type="text" autocomplete="name" required />
-      </label>
-
-      <label>
-        Email
-        <input name="email" type="email" autocomplete="email" required />
-      </label>
-
-      <button id="dcs-submit-btn" type="submit">Run Diagnostic</button>
-      <div id="dcs-form-error" style="display:none;" role="status" aria-live="polite"></div>
-    </form>
-
-    <!-- Your existing page sections/content can remain below -->
-    <!-- Section 1: Symptoms -->
-    <section class="tier2-section" data-nt-section="symptoms" data-nt-track="nt_symptoms_view">
-      <div class="tier2-container">
-        <h1 class="tier2-h1">Your Marketing Isn't Broken. Your Credibility Is Invisible.</h1>
-        <p class="tier2-lead">You've tried the agencies. You've spent on ads. You've published content. And yet:</p>
-        <ul class="tier2-list tier2-list--dashes">
-          <li>Your competitors appear in AI answers. You don't.</li>
-          <li>Your ads cost more every quarter with diminishing returns.</li>
-          <li>Your content ranks, but doesn't convert.</li>
-          <li>You can't explain why some campaigns work and others fail.</li>
-        </ul>
-        <p>These aren't marketing problems. They're symptoms of something deeper.</p>
-      </div>
-=======
 import Layout from "../layouts/Layout.astro";
 import Tier2Telemetry from "../components/Tier2Telemetry.astro";
 ---
@@ -78,7 +9,6 @@ import Tier2Telemetry from "../components/Tier2Telemetry.astro";
     <section class="diagnostic-hero">
       <h1>DCS Diagnostic</h1>
       <p>Discover how your digital presence scores across credibility, trust, and machine readability.</p>
->>>>>>> 03a8149 ([fix]: DIOS-compliant form + thank-you with Tier2Telemetry)
     </section>
 
     <section class="diagnostic-form-section" data-nt-section="diagnostic_form">
@@ -152,93 +82,6 @@ import Tier2Telemetry from "../components/Tier2Telemetry.astro";
         </button>
       </form>
     </section>
-<<<<<<< HEAD
-
-    <!-- AJAX submit (prevents POST->/thank-you/ 404) -->
-    <script is:inline>
-      (function () {
-        var form = document.getElementById("dcs-diagnostic-form");
-        if (!form) return;
-
-        var btn = document.getElementById("dcs-submit-btn");
-        var err = document.getElementById("dcs-form-error");
-
-        function getGtmPreviewQS() {
-          var qs = window.location.search || "";
-          if (!qs) return "";
-          var hasPreview =
-            qs.indexOf("gtm_debug=") !== -1 ||
-            qs.indexOf("gtm_auth=") !== -1 ||
-            qs.indexOf("gtm_preview=") !== -1;
-          return hasPreview ? qs : "";
-        }
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          if (btn) btn.disabled = true;
-          if (err) { err.style.display = "none"; err.textContent = ""; }
-
-          // Netlify expects x-www-form-urlencoded
-          var formData = new FormData(form);
-          var body = new URLSearchParams();
-          for (var pair of formData.entries()) body.append(pair[0], String(pair[1]));
-
-          fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: body.toString()
-          })
-            .then(function (res) {
-              if (!res.ok) throw new Error("Netlify form submit failed: " + res.status);
-              var qs = getGtmPreviewQS();
-              window.location.assign("/dcs-diagnostic/thank-you/" + (qs || ""));
-            })
-            .catch(function (ex) {
-              if (btn) btn.disabled = false;
-              if (err) {
-                err.textContent = "Submission failed. Please try again.";
-                err.style.display = "block";
-              }
-              console.error(ex);
-            });
-        });
-      })();
-    </script>
-
-    <!-- Tier-2 view telemetry (gated by nt_system_ready, session dedupe) -->
-    <script is:inline>
-      (function () {
-        window.dataLayer = window.dataLayer || [];
-
-        var TIMEOUT_MS = 3000;
-        var POLL_MS = 50;
-        var elapsed = 0;
-
-        function once(key, fn) {
-          try {
-            if (sessionStorage.getItem(key)) return;
-            sessionStorage.setItem(key, "1");
-          } catch (e) {}
-          fn();
-        }
-
-        function fire() {
-          once("nt_dcs_diag_view", function () {
-            window.dataLayer.push({
-              event: "nt_dcs_diag_view",
-              nt_event_source: "tier2",
-              page_path: location.pathname,
-              page_title: document.title
-            });
-          });
-        }
-
-        function hasSystemReady() {
-          try {
-            for (var i = window.dataLayer.length - 1; i >= 0; i--) {
-              if (window
-=======
   </main>
 </Layout>
 
@@ -347,4 +190,3 @@ import Tier2Telemetry from "../components/Tier2Telemetry.astro";
   });
 })();
 </script>
->>>>>>> 03a8149 ([fix]: DIOS-compliant form + thank-you with Tier2Telemetry)
