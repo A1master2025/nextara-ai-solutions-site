@@ -4,12 +4,13 @@
  * Route: /dcs-diagnostic/thank-you/
  * Fires: nt_dcs_diag_submit_success (tier2) with sessionStorage dedupe
  */
-import Layout from '../../../layouts/Layout.astro';
-import Tier2Telemetry from '../../../components/Tier2Telemetry.astro';
+import Layout from "../../../layouts/Layout.astro";
+import Tier2Telemetry from "../../../components/Tier2Telemetry.astro";
 ---
 
 <Layout title="Thank You | DCS Diagnostic | NexTara">
   <Tier2Telemetry />
+
   <main data-nt-section="thank_you" data-nt-page="dcs_diagnostic_thank_you">
     <section class="thank-you-content">
       <h1>Thank You</h1>
@@ -22,20 +23,23 @@ import Tier2Telemetry from '../../../components/Tier2Telemetry.astro';
       (function () {
         window.dataLayer = window.dataLayer || [];
 
-        var KEY = "nt_dcs_diag_submit_success";
+        var SESSION_KEY = "nt_dcs_diag_submit_success_fired";
         var TIMEOUT_MS = 3000;
         var POLL_MS = 50;
         var elapsed = 0;
 
-        function once(key, fn) {
-          try {
-            if (sessionStorage.getItem(key)) return;
-            sessionStorage.setItem(key, "1");
-          } catch (e) {}
-          fn();
+        function alreadyFired() {
+          try { return sessionStorage.getItem(SESSION_KEY) === "1"; }
+          catch (e) { return false; }
         }
 
-        function hasSystemReady() {
+        function markFired() {
+          try { sessionStorage.setItem(SESSION_KEY, "1"); }
+          catch (e) {}
+        }
+
+        function isSystemReady() {
+          if (window.__NT_SYSTEM_READY_EMITTED__ === true) return true;
           try {
             for (var i = window.dataLayer.length - 1; i >= 0; i--) {
               if (window.dataLayer[i] && window.dataLayer[i].event === "nt_system_ready") return true;
@@ -44,92 +48,27 @@ import Tier2Telemetry from '../../../components/Tier2Telemetry.astro';
           return false;
         }
 
-        function fire() {
-          once(KEY, function () {
-            window.dataLayer.push({
-              event: "nt_dcs_diag_submit_success",
-              nt_event_source: "tier2",
-              form_name: "dcs-diagnostic",
-              page_path: location.pathname,
-              page_title: document.title
-            });
+        function pushEvent() {
+          if (alreadyFired()) return;
+          markFired();
+          window.dataLayer.push({
+            event: "nt_dcs_diag_submit_success",
+            nt_event_source: "tier2",
+            form_name: "dcs-diagnostic",
+            page_path: location.pathname,
+            page_title: document.title
           });
         }
 
-        function wait() {
-          if (hasSystemReady()) {
-            fire();
-            return;
-          }
-          if (elapsed < TIMEOUT_MS) {
-            elapsed += POLL_MS;
-            setTimeout(wait, POLL_MS);
-          }
-          // fail-closed on readiness timeout
+        function poll() {
+          if (isSystemReady()) { pushEvent(); return; }
+          if (elapsed < TIMEOUT_MS) { elapsed += POLL_MS; setTimeout(poll, POLL_MS); return; }
+          // fail-open after 3000ms
+          pushEvent();
         }
 
-        wait();
+        poll();
       })();
     </script>
-
-    <Tier2Telemetry />
   </main>
 </Layout>
-
-<script is:inline>
-(function() {
-  var SESSION_KEY = "nt_dcs_diag_submit_success_fired";
-  var TIMEOUT_MS = 3000;
-
-  function isSystemReady() {
-    if (window.__NT_SYSTEM_READY_EMITTED__ === true) return true;
-    if (window.dataLayer && Array.isArray(window.dataLayer)) {
-      for (var i = 0; i < window.dataLayer.length; i++) {
-        if (window.dataLayer[i] && window.dataLayer[i].event === "nt_system_ready") {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  function pushSuccessEvent() {
-    if (typeof sessionStorage !== "undefined" && sessionStorage.getItem(SESSION_KEY)) {
-      return;
-    }
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: "nt_dcs_diag_submit_success",
-        nt_event_source: "tier2",
-        form_name: "dcs-diagnostic"
-      });
-      if (typeof sessionStorage !== "undefined") {
-        sessionStorage.setItem(SESSION_KEY, "1");
-      }
-    }
-  }
-
-  function waitForReady() {
-    if (isSystemReady()) {
-      pushSuccessEvent();
-      return;
-    }
-    var startTime = Date.now();
-    var interval = setInterval(function() {
-      if (isSystemReady()) {
-        clearInterval(interval);
-        pushSuccessEvent();
-      } else if (Date.now() - startTime >= TIMEOUT_MS) {
-        clearInterval(interval);
-        pushSuccessEvent();
-      }
-    }, 100);
-  }
-
-  if (document.readyState === "complete") {
-    waitForReady();
-  } else {
-    window.addEventListener("load", waitForReady);
-  }
-})();
-</script>
