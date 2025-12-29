@@ -1,54 +1,52 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+// src/pages/dcs-diagnostic/thank-you/index.astro
+/**
+ * Thank-you page (Tier 2 submit success)
+ * Fires: nt_dcs_diag_submit_success (tier2) with session dedupe
+ * No form on this page.
+ */
+import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout>
-  <main>
-    <h1>Request received</h1>
-    <p>We’ll follow up shortly</p>
+  <main class="tier2-main" data-nt-page="dcs_diagnostic_thank_you">
+    <section class="tier2-section">
+      <div class="tier2-container">
+        <h1 class="tier2-h1">Submission confirmed</h1>
+        <p class="tier2-lead">We received your DCS Diagnostic request.</p>
+        <p>You can close this tab or run another diagnostic.</p>
+        <p style="margin-top: 12px;">
+          <a class="tier2-btn" href="/dcs-diagnostic/">Run another diagnostic</a>
+        </p>
+      </div>
+    </section>
 
     <script is:inline>
       (function () {
         window.dataLayer = window.dataLayer || [];
 
-        var TIMEOUT_MS = 3000;
-        var POLL_MS = 50;
-        var elapsed = 0;
+        // session dedupe
+        var key = "nt_dcs_diag_submit_success";
+        try {
+          if (sessionStorage.getItem(key) === "1") return;
+          sessionStorage.setItem(key, "1");
+        } catch (e) {}
 
-        var once = function (key, fn) {
-          try {
-            if (sessionStorage.getItem(key)) return;
-            sessionStorage.setItem(key, "1");
-          } catch (e) {}
-          fn();
+        var payload = {
+          event: "nt_dcs_diag_submit_success",
+          nt_event_source: "tier2",
+          form_name: "dcs-diagnostic",
+          page_path: "/dcs-diagnostic/thank-you/",
+          page_title: "DCS Diagnostic Submitted"
         };
 
-        var fire = function () {
-          once("nt_dcs_diag_submit_success", function () {
-            window.dataLayer.push({
-              event: "nt_dcs_diag_submit_success",
-              nt_event_source: "tier2",
-              form_name: "dcs-diagnostic",
-              page_path: location.pathname,
-              page_title: document.title
-            });
-          });
-        };
-
-        var poll = function () {
-          if (window.__NT_SYSTEM_READY_EMITTED__) {
-            fire();
-            return;
-          }
-          if (elapsed < TIMEOUT_MS) {
-        elapsed += POLL_MS;
-        setTimeout(poll, POLL_MS);
-      } else {
-        console.warn('[DIOS] nt_dcs_diag_submit_success: readiness timeout (3000ms) — event not fired');
-      }
-        };
-
-        poll();
+        // brief readiness wait, fail-open
+        var start = Date.now();
+        (function waitThenPush() {
+          if (window.__NT_SYSTEM_READY_EMITTED__) return window.dataLayer.push(payload);
+          if (Date.now() - start >= 3000) return window.dataLayer.push(payload);
+          setTimeout(waitThenPush, 50);
+        })();
       })();
     </script>
   </main>
