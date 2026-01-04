@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Tracking Governance — NexTara AI Solutions";
+const description =
+  "GTM-only instrumentation, clean analytics, event hygiene, and proof-based reporting to govern performance with confidence.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main data-nt-section="service_tracking_governance">
+    <section class="section service-hero">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>Tracking Governance</h1>
+        <p class="service-hero__lead">
+          We implement measurement discipline so your data is trustworthy, your conversions are real, and your decisions are defensible.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="tracking_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="tracking_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-detail">
+      <div class="container">
+        <h2>What we deliver</h2>
+        <ul>
+          <li>GTM-only architecture (single source of truth)</li>
+          <li>Event taxonomy + naming standards (DIOS-ready)</li>
+          <li>Conversion integrity: dedupe, validation, and thank-you endpoints</li>
+          <li>Consent-aware tagging patterns (when applicable)</li>
+          <li>Debug workflows and evidence packs for verification</li>
+        </ul>
+
+        <h2>What it solves</h2>
+        <ul>
+          <li>Duplicate pageviews, double conversions, and polluted attribution</li>
+          <li>“Leads” that are actually clicks, spam, or misfires</li>
+          <li>Reporting ambiguity across Ads, Analytics, and CRM</li>
+          <li>Inability to prove what caused performance changes</li>
+        </ul>
+
+        <div class="service-cta">
+          <h2>Start with proof.</h2>
+          <p>
+            If your tracking is wrong, every optimization decision is compromised. We make measurement reliable before we scale spend.
+          </p>
+          <div class="service-cta__actions">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="tracking_cta_bottom_diagnostic">Run Your DCS Score</a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="tracking_cta_bottom_contact">Talk to NexTara</a>
+          </div>
+        </div>
+
+        <div class="service-nav">
+          <a class="btn btn-secondary" href="/services/" data-nt-event="tracking_back_services">Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

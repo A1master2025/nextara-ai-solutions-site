@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "SEO + Indexing Systems — NexTara AI Solutions";
+const description =
+  "Sitemaps, internal linking, crawl policy, structured data, and indexing controls that govern discoverability in search and AI answers.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main data-nt-section="service_seo_indexing">
+    <section class="section service-hero">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>SEO + Indexing Systems</h1>
+        <p class="service-hero__lead">
+          We govern how your site is discovered, interpreted, and trusted—by search engines and AI-generated answers.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="seo_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="seo_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-detail">
+      <div class="container">
+        <h2>What we deliver</h2>
+        <ul>
+          <li>Indexing policy: robots, canonicals, sitemap governance</li>
+          <li>Structured data baselines (Organization, WebSite, WebPage, Services)</li>
+          <li>Internal linking that supports authority flow</li>
+          <li>Technical hygiene: duplication control and crawl efficiency</li>
+          <li>AI-readiness: machine-readable clarity and trust signals</li>
+        </ul>
+
+        <h2>What it solves</h2>
+        <ul>
+          <li>Pages accidentally indexed (or accidentally excluded)</li>
+          <li>Duplicate content and canonical ambiguity</li>
+          <li>Weak entity signals for AI answers and knowledge retrieval</li>
+          <li>Content that ranks poorly despite “good writing”</li>
+        </ul>
+
+        <div class="service-cta">
+          <h2>Start with proof.</h2>
+          <p>
+            Visibility is not luck. It’s governance: what gets indexed, what gets trusted, and what gets surfaced.
+          </p>
+          <div class="service-cta__actions">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="seo_cta_bottom_diagnostic">Run Your DCS Score</a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="seo_cta_bottom_contact">Talk to NexTara</a>
+          </div>
+        </div>
+
+        <div class="service-nav">
+          <a class="btn btn-secondary" href="/services/" data-nt-event="seo_back_services">Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

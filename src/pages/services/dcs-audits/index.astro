@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
@@ -115,3 +115,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     border-top: 1px solid var(--border-subtle, #E1E3E8);
   }
 </style>
+```
+
+Save with **Ctrl+S**.
+
+Then verify the file has content:
+```
+(Get-Item .\src\pages\services\dcs-audits\index.astro).Length

@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Conversion Architecture — NexTara AI Solutions";
+const description =
+  "Funnels, forms, thank-you endpoints, and measurable actions tied directly to business outcomes—not vanity metrics.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main data-nt-section="service_conversion_architecture">
+    <section class="section service-hero">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>Conversion Architecture</h1>
+        <p class="service-hero__lead">
+          We design conversion paths that make intent obvious, remove friction, and turn traffic into measurable outcomes.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="conversion_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="conversion_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-detail">
+      <div class="container">
+        <h2>What we deliver</h2>
+        <ul>
+          <li>Conversion goal definition (primary vs secondary)</li>
+          <li>Form + thank-you endpoint system (Netlify-friendly)</li>
+          <li>CTA hierarchy and page-level conversion logic</li>
+          <li>Trust signal mapping (what removes doubt at decision time)</li>
+          <li>Measurement-ready UX patterns (events, funnels, validation)</li>
+        </ul>
+
+        <h2>What it solves</h2>
+        <ul>
+          <li>Traffic that doesn’t convert because the path is unclear</li>
+          <li>Leads that don’t match intent due to weak gatekeeping</li>
+          <li>High CPC and rising CPA from poor landing architecture</li>
+          <li>“Optimizations” that can’t be measured or attributed</li>
+        </ul>
+
+        <div class="service-cta">
+          <h2>Start with proof.</h2>
+          <p>
+            Conversion architecture turns marketing into a system: predictable actions, measurable outcomes, and reduced uncertainty.
+          </p>
+          <div class="service-cta__actions">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="conversion_cta_bottom_diagnostic">Run Your DCS Score</a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="conversion_cta_bottom_contact">Talk to NexTara</a>
+          </div>
+        </div>
+
+        <div class="service-nav">
+          <a class="btn btn-secondary" href="/services/" data-nt-event="conversion_back_services">Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

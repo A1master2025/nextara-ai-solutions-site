@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Automation (ECC) — NexTara AI Solutions";
+const description =
+  "Operational automations that reduce manual work, eliminate reporting ambiguity, and connect systems into one governed workflow.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main data-nt-section="service_automation_ecc">
+    <section class="section service-hero">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>Automation (ECC)</h1>
+        <p class="service-hero__lead">
+          We build operational automations that make execution repeatable and measurable—without adding chaos or fragility.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="automation_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="automation_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-detail">
+      <div class="container">
+        <h2>What we deliver</h2>
+        <ul>
+          <li>Workflow automation across lead capture, routing, and reporting</li>
+          <li>System-to-system integration patterns (clean handoffs)</li>
+          <li>Operational dashboards and alerting logic (where applicable)</li>
+          <li>Governance: naming, ownership, and auditability</li>
+          <li>Automation that respects measurement integrity</li>
+        </ul>
+
+        <h2>What it solves</h2>
+        <ul>
+          <li>Manual processes that slow execution and create errors</li>
+          <li>Disconnected tools and inconsistent reporting</li>
+          <li>Leads stuck in inboxes instead of routed to action</li>
+          <li>Automations that break because they weren’t governed</li>
+        </ul>
+
+        <div class="service-cta">
+          <h2>Start with proof.</h2>
+          <p>
+            Automation should increase control—not create new failure points. We implement with governance and observability.
+          </p>
+          <div class="service-cta__actions">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="automation_cta_bottom_diagnostic">Run Your DCS Score</a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="automation_cta_bottom_contact">Talk to NexTara</a>
+          </div>
+        </div>
+
+        <div class="service-nav">
+          <a class="btn btn-secondary" href="/services/" data-nt-event="automation_back_services">Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

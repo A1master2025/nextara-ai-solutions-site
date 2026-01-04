@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Paid Media Systems — NexTara AI Solutions";
+const description =
+  "Campaign structure + measurement discipline so spend is governed, not guessed—built to scale without losing control.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main data-nt-section="service_paid_media_systems">
+    <section class="section service-hero">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>Paid Media Systems</h1>
+        <p class="service-hero__lead">
+          We build paid media systems that are measurable, compliant, and controllable—so performance can be proven and scaled.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="paid_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="paid_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-detail">
+      <div class="container">
+        <h2>What we deliver</h2>
+        <ul>
+          <li>Campaign architecture aligned to intent (not keyword soup)</li>
+          <li>Conversion mapping + attribution hygiene</li>
+          <li>Governed budgets and scaling rules</li>
+          <li>Compliance-safe ad messaging patterns (where applicable)</li>
+          <li>Reporting that ties spend to measurable outcomes</li>
+        </ul>
+
+        <h2>What it solves</h2>
+        <ul>
+          <li>Rising CPA due to weak structure and weak measurement</li>
+          <li>Spend that can’t be explained, defended, or forecasted</li>
+          <li>Lead quality problems caused by poor intent control</li>
+          <li>“Optimizations” that are really just guesswork</li>
+        </ul>
+
+        <div class="service-cta">
+          <h2>Start with proof.</h2>
+          <p>
+            Paid media only scales when measurement is reliable and structure is governed. We build for control first, then growth.
+          </p>
+          <div class="service-cta__actions">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="paid_cta_bottom_diagnostic">Run Your DCS Score</a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="paid_cta_bottom_contact">Talk to NexTara</a>
+          </div>
+        </div>
+
+        <div class="service-nav">
+          <a class="btn btn-secondary" href="/services/" data-nt-event="paid_back_services">Back to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
