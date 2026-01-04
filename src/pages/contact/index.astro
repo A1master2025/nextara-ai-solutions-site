@@ -7,8 +7,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   description="Request a consultation or ask a question. NexTara builds governed digital growth systems."
 >
   <main class="container page-pad-top" data-nt-section="contact">
-    <h1>Contact</h1>
-    <p>Send a message and we'll respond promptly.</p>
+    <div class="contact-header">
+      <h1>Contact</h1>
+      <p>Send a message and we'll respond within one business day.</p>
+    </div>
 
     <form
       name="contact"
@@ -17,6 +19,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       data-netlify="true"
       netlify-honeypot="bot-field"
       data-nt-event="contact_form_submit"
+      class="contact-form"
     >
       <input type="hidden" name="form-name" value="contact" />
 
@@ -26,27 +29,94 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </label>
       </p>
 
-      <label>
-        Full name
-        <input name="name" type="text" autocomplete="name" required />
-      </label>
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+      </div>
 
-      <label>
-        Email
-        <input name="email" type="email" autocomplete="email" required />
-      </label>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+      </div>
 
-      <label>
-        Company (optional)
-        <input name="company" type="text" autocomplete="organization" />
-      </label>
+      <div class="form-group">
+        <label for="company">Company <span class="optional">(optional)</span></label>
+        <input id="company" name="company" type="text" autocomplete="organization" />
+      </div>
 
-      <label>
-        Message
-        <textarea name="message" rows="6" required></textarea>
-      </label>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
 
-      <button class="btn btn-primary" type="submit">Send</button>
+      <button class="btn btn-primary" type="submit">Send Message</button>
     </form>
   </main>
 </BaseLayout>
+
+<style>
+  .contact-header {
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+
+  .contact-header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-header p {
+    color: var(--color-text-muted, #94a3b8);
+    font-size: 1.125rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    color: var(--color-text, #f1f5f9);
+  }
+
+  .form-group .optional {
+    font-weight: 400;
+    color: var(--color-text-muted, #94a3b8);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-border, #334155);
+    border-radius: 0.5rem;
+    background: var(--color-surface, #1e293b);
+    color: var(--color-text, #f1f5f9);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .contact-form .btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+</style>
