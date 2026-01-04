@@ -407,3 +407,35 @@ a:focus-visible {
 [data-nt-section="contact"] textarea::placeholder {
   color: var(--form-placeholder);
 }
+
+/* =========================
+   Phase 3C — Section + Cards (Sprint 3C-1)
+   ========================= */
+
+.nt-grid{
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(1,minmax(0,1fr));
+}
+@media (min-width: 768px){
+  .nt-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+.nt-card{
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  padding:1.25rem;
+}
+.nt-eyebrow{
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  opacity:.8;
+  margin:0 0 .5rem;
+}
+.nt-cta-card{
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  padding:1.5rem;
+}

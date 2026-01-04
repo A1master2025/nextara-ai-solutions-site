@@ -1,0 +1,16 @@
+---
+const {
+  title = "Ready to move from uncertainty to proof?",
+  href = "/dcs-diagnostic/",
+  cta = "Run Your Digital Credibility Score",
+} = Astro.props;
+---
+<section class="nt-cta-section" data-nt-section="cta_section">
+  <div class="container">
+    <div class="nt-cta-card">
+      <h2>{title}</h2>
+      <p>Get a defensible baseline across trust signals, machine readability, and conversion architecture.</p>
+      <a class="btn btn-primary" href={href} data-nt-event="cta_section_primary">{cta}</a>
+    </div>
+  </div>
+</section>

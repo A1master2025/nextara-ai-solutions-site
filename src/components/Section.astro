@@ -1,0 +1,10 @@
+---
+const { id, title, eyebrow, className = "" } = Astro.props;
+---
+<section id={id} class={`nt-section ${className}`.trim()}>
+  <div class="container">
+    {eyebrow && <p class="nt-eyebrow">{eyebrow}</p>}
+    {title && <h2>{title}</h2>}
+    <slot />
+  </div>
+</section>

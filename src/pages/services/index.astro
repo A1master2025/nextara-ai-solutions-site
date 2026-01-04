@@ -1,61 +1,83 @@
 ---
-/**
- * Services Page (Stub)
- * Phase 3 route placeholder - content to be implemented in future sprint.
- */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
   title="Services — NexTara AI Solutions"
-  description="Enterprise digital credibility services. AI-governance systems, measurement frameworks, and strategic growth architecture."
+  description="Governed digital growth systems: DCS audits, tracking governance, conversion architecture, and automation."
 >
-  <main class="stub-page" data-nt-section="services">
-    <div class="stub-page__inner">
-      <h1>Services</h1>
-      <p class="stub-page__notice">
-        This page is under construction. Full content coming soon.
-      </p>
-      <a href="/" class="stub-page__back" data-nt-event="stub_back_home">
-        &larr; Return to Homepage
-      </a>
-    </div>
+  <main data-nt-section="services">
+    <section class="section">
+      <div class="container page-pad-top">
+        <p class="nt-eyebrow">Services</p>
+        <h1>Governed Digital Growth Systems</h1>
+        <p>
+          We build and govern the digital system behind your business—so performance is measurable,
+          credibility is defensible, and growth is controllable.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="services_cta_diagnostic">
+            Run Your DCS Score
+          </a>
+          <a class="btn btn-secondary" href="/contact/" data-nt-event="services_cta_contact">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="nt-grid">
+          <article class="nt-card">
+            <h2>DCS Audits (PromptCore)</h2>
+            <p>Compliance-grade technical credibility verification with prioritized remediation.</p>
+          </article>
+
+          <article class="nt-card">
+            <h2>Tracking Governance</h2>
+            <p>GTM-only instrumentation, clean analytics, event hygiene, and proof-based reporting.</p>
+          </article>
+
+          <article class="nt-card">
+            <h2>Conversion Architecture</h2>
+            <p>Funnels, forms, thank-you endpoints, and measurable actions tied to business outcomes.</p>
+          </article>
+
+          <article class="nt-card">
+            <h2>SEO + Indexing Systems</h2>
+            <p>Sitemaps, internal linking, crawl policy, structured data, and search visibility control.</p>
+          </article>
+
+          <article class="nt-card">
+            <h2>Automation (ECC)</h2>
+            <p>Operational automations that reduce manual work and eliminate reporting ambiguity.</p>
+          </article>
+
+          <article class="nt-card">
+            <h2>Paid Media Systems</h2>
+            <p>Campaign structure + measurement discipline so spend is governed, not guessed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="nt-cta-card">
+          <h2>Start with proof.</h2>
+          <p>Run your DCS Score and we’ll tell you what’s real, what’s missing, and what to fix first.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/dcs-diagnostic/" data-nt-event="services_cta_bottom_diagnostic">
+              Run Your DCS Score
+            </a>
+            <a class="btn btn-secondary" href="/contact/" data-nt-event="services_cta_bottom_contact">
+              Talk to NexTara
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
-
-<style>
-  .stub-page {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1.5rem;
-  }
-
-  .stub-page__inner {
-    text-align: center;
-    max-width: 480px;
-  }
-
-  .stub-page h1 {
-    font-size: 2rem;
-    color: var(--color-brand-primary, #0B1E3A);
-    margin: 0 0 1rem;
-  }
-
-  .stub-page__notice {
-    color: #64748b;
-    margin: 0 0 2rem;
-  }
-
-  .stub-page__back {
-    display: inline-block;
-    color: var(--color-action, #2563EB);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .stub-page__back:hover {
-    text-decoration: underline;
-  }
-</style>
