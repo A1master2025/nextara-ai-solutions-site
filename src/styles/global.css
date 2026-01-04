@@ -17,6 +17,13 @@
 
   /* Borders */
   --border-subtle: #E1E3E8;
+/* Form tokens (theme-safe) */
+  --form-label: #F8FAFC;
+  --form-help: rgba(248, 250, 252, 0.8);
+  --form-border: rgba(248, 250, 252, 0.22);
+  --form-bg: rgba(255, 255, 255, 0.06);
+  --form-input: #F8FAFC;
+  --form-placeholder: rgba(248, 250, 252, 0.55);  
 }
 
 /* =========================================================
@@ -381,4 +388,22 @@ a:focus-visible {
 .tier2-section button:focus-visible {
   outline: 2px solid var(--action-primary);
   outline-offset: 2px;
+}
+
+/* Contact form readability hardening */
+[data-nt-section="contact"] label {
+  color: var(--form-label) !important;
+}
+
+[data-nt-section="contact"] input,
+[data-nt-section="contact"] textarea,
+[data-nt-section="contact"] select {
+  color: var(--form-input);
+  background: var(--form-bg);
+  border-color: var(--form-border);
+}
+
+[data-nt-section="contact"] input::placeholder,
+[data-nt-section="contact"] textarea::placeholder {
+  color: var(--form-placeholder);
 }
