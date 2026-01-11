@@ -1,211 +1,211 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'NexTara AI Solutions | AI-Powered Digital Growth for SMBs';
+const pageDescription = 'Get found online, turn visitors into leads, and see real ROI. AI-powered digital marketing built for small and medium businesses.';
 ---
 
-<BaseLayout>
-  <main data-nt-section="home">
+<Layout title={pageTitle} description={pageDescription}>
+  <main>
+
     <!-- HERO -->
-    <div class="container">
-      <div class="page-pad-top">
-        <h1>You Built a Business. Learning Digital Systems Shouldn't Be the Cost of Running It.</h1>
-
-        <p>
-          Too many owners get pulled into managing dashboards, chasing metrics, and decoding vendor jargon - just to make sure their online presence isn't quietly working against them.
-          <br /><br />
-          We take that weight off — and replace it with proof.
+    <section class="nt-hero">
+      <div class="container">
+        <h1>AI-Powered Digital Growth for Small & Medium Businesses</h1>
+        <p class="nt-hero__subtitle">
+          Get found online, turn visitors into leads, and see real ROI—without the guesswork or wasted budget.
         </p>
-
         <div class="cta-row">
-  
-    class="btn btn-primary"
-    href="/dcs-diagnostic/"
-    data-nt-event="cta_primary"
-    data-nt-cta="run_digital_credibility_score"
-  >
-    Run Your Digital Credibility Score
-  </a>
-
-  
-    class="btn btn-secondary"
-    href="/services/"
-    data-nt-event="cta_secondary"
-    data-nt-cta="explore_services"
-  >
-    Explore Services
-  </a>
-</div>
-
-<p class="cta-sublink">
-  <a href="#promptcore">See how the system works</a>
-</p>
-
-    <!-- SECTION 2: Problem Reframe -->
-    <section data-nt-section="problem_reframe" class="section">
-      <div class="container">
-        <h2>The Problem You're Actually Facing</h2>
-        <p>
-          If you've ever questioned whether your website, analytics, or marketing are actually telling you the truth—you're not alone.
-          Most owners aren't struggling because they're doing something wrong. They're struggling because their digital presence was never built to give clear, trustworthy answers in the first place.
-        </p>
-        <p>
-          Effort isn't the issue. Intelligence isn't the issue. The issue is that most digital setups were never designed as systems.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 3: Why Digital Feels Hard -->
-    <section data-nt-section="why_digital_hard" class="section">
-      <div class="container">
-        <h2>Why Digital Feels Harder Than It Should</h2>
-        <p>In most businesses, the digital side grows in pieces:</p>
-        <ul>
-          <li>A website that looks fine but doesn't clearly earn trust</li>
-          <li>Numbers that move but don't explain what's actually happening</li>
-          <li>Vendors who optimize their part, not the whole</li>
-          <li>Reports that require interpretation instead of delivering clarity</li>
-        </ul>
-        <p>
-          The result is activity without confidence. You're managing inputs without knowing which ones matter.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 4: What's Missing -->
-    <section data-nt-section="whats_missing" class="section">
-      <div class="container">
-        <h2>What's Missing Isn't Another Tool</h2>
-        <p>
-          What's missing isn't more software, more campaigns, or another dashboard. What's missing is a system that ties everything together—one that measures reality,
-          builds credibility, and makes it obvious where to focus next.
-        </p>
-
-        <h3>A real digital system does three things consistently:</h3>
-        <ul>
-          <li>It measures what actually matters</li>
-          <li>It earns trust with platforms and customers</li>
-          <li>It creates accountability across every digital decision</li>
-        </ul>
-
-        <p>
-          Most businesses never get this because no one owns the system end to end.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 5: NexTara Approach -->
-    <section data-nt-section="nextara_approach" class="section">
-      <div class="container">
-        <h2>How NexTara Approaches the Problem</h2>
-        <p>NexTara exists to design and govern that missing system.</p>
-        <p>
-          We don't manage tactics in isolation or chase short-term wins. We build the structure behind your digital presence so you can see what's working, what isn't,
-          and why—without having to decode it yourself.
-        </p>
-        <p>
-          This turns your digital presence from a source of uncertainty into a source of clarity.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 6: Why This Works -->
-    <section data-nt-section="why_this_works" class="section">
-      <div class="container">
-        <h2>Why This Approach Works</h2>
-        <p>
-          When your digital presence is governed as a system, decisions stop being reactive. Assumptions get replaced with evidence. Confidence comes from proof, not reassurance.
-        </p>
-        <p>
-          Growth becomes something you can trust—because it's built on what can be verified, not what sounds good in a report.
-        </p>
-      </div>
-    </section>
-
-    <!-- PROMPTCORE REVEAL -->
-    <section id="promptcore" data-nt-section="promptcore_reveal" class="section">
-      <div class="container">
-        <h2>How We Replace Uncertainty With Proof</h2>
-
-        <p>
-          For most business owners, the hardest part of digital isn't effort—it's uncertainty. You're making decisions without knowing which signals to trust,
-          which numbers matter, or whether your online presence is helping or quietly holding you back.
-        </p>
-
-        <p>This is the gap PromptCore was built to close.</p>
-
-        <h3>The Digital Credibility Score</h3>
-
-        <p>
-          PromptCore produces a <strong>Digital Credibility Score</strong>—a clear, defensible measure of how trustworthy your digital presence appears to both humans and machines.
-        </p>
-
-        <ul>
-          <li>
-            <strong>Human Trust (PromptCore v3.6)</strong><br />
-            Evaluates what real people experience: clarity, credibility signals, accessibility, consistency, and whether your digital presence feels legitimate and trustworthy.
-          </li>
-          <li>
-            <strong>Machine Trust (PromptCore v3.7)</strong><br />
-            Evaluates what platforms see: technical integrity, structured data, performance, security, analytics hygiene, and whether your site can be confidently interpreted and indexed.
-          </li>
-        </ul>
-
-        <p>
-          Together, these lenses answer the question most businesses can't get a straight answer to today:
-          <em>Can my digital presence be trusted—and proven—by the systems that decide visibility, ranking, and conversion?</em>
-        </p>
-
-        <p>
-          When credibility is unclear, growth is fragile. Decisions are based on assumptions, reports require interpretation, and confidence depends on reassurance.
-          When credibility is measured, growth becomes stable. You can see what's real, identify what's missing, and fix problems before they compound.
-        </p>
-
-        <p>This is how we take the weight off—and replace it with proof.</p>
-      </div>
-    </section>
-
-    <!-- SECTION 7: Fit & Focus -->
-    <section data-nt-section="fit_focus" class="section">
-      <div class="container">
-        <h2>Fit & Focus</h2>
-        <p><strong>Designed for operators who want to know the truth about what's working—and act on it.</strong></p>
-        <p>
-          NexTara is built for owners who care about doing things right and want their digital presence to reflect the quality of how they run their business.
-        </p>
-        <p>
-          If you're looking for quick tactics, shortcuts, or surface-level optimization, this won't be a fit.
-          If you want clarity, accountability, and a system you can rely on, you're in the right place.
-        </p>
-      </div>
-    </section>
-
-    <!-- CTA BLOCK (AFTER FIT & FOCUS) -->
-    <section data-nt-section="cta_block" class="section">
-      <div class="container">
-        <h2>Ready to See Where You Stand?</h2>
-        <p>
-          Run your Digital Credibility Score to see what's helping, what's missing, and what to fix first.
-        </p>
-
-        <div class="cta-row">
-          <a
-            class="btn btn-primary"
-            href="/dcs-diagnostic/"
-            data-nt-event="cta_primary"
-            data-nt-cta="run_digital_credibility_score"
-          >
-            Run Your Digital Credibility Score
-          </a>
-
-          <a
-            class="btn btn-secondary"
-            href="#promptcore"
-            data-nt-event="cta_secondary"
-            data-nt-cta="learn_the_system"
-          >
-            See How the System Works
-          </a>
+          <a class="btn btn-primary" href="/contact/">Get Your Free Growth Assessment</a>
+          <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
         </div>
       </div>
     </section>
+
+    <!-- PROBLEM RECOGNITION -->
+    <section class="section" data-nt-section="problem">
+      <div class="container">
+        <h2>You're Working Hard—But Your Online Presence Isn't Working for You</h2>
+        <p>
+          You've tried ads, agencies, maybe even hired someone to "do SEO." But the leads aren't coming, the reports don't make sense, and you're still wondering where your marketing budget actually goes.
+        </p>
+        <ul class="nt-list nt-list--problems">
+          <li>Your website doesn't show up when customers search for what you do</li>
+          <li>You're paying for ads but can't tell what's actually working</li>
+          <li>Marketing "experts" talk in jargon and deliver dashboards, not results</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- POSITIONING REFRAME -->
+    <section class="section section--alt" data-nt-section="reframe">
+      <div class="container">
+        <h2>What If Your Marketing Actually Made Sense?</h2>
+        <p>
+          We use AI to cut through the noise—not to replace human judgment, but to find what's actually moving the needle for your business. You get clear answers, not complicated reports.
+        </p>
+        <div class="nt-grid nt-grid--3">
+          <div class="nt-card">
+            <h3>Visibility</h3>
+            <p>Get found by customers who are actively searching for your services.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Leads</h3>
+            <p>Turn website visitors into real conversations and qualified opportunities.</p>
+          </div>
+          <div class="nt-card">
+            <h3>ROI</h3>
+            <p>Know exactly what your marketing spend produces—in plain numbers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section id="services" class="section" data-nt-section="services">
+      <div class="container">
+        <h2>How We Help You Grow</h2>
+        <p>Three focused services. One outcome: more customers finding and choosing your business.</p>
+        <div class="nt-grid nt-grid--3">
+          <div class="nt-card">
+            <h3>Search & Visibility</h3>
+            <p>Show up when local customers search for what you offer. We optimize your presence on Google, maps, and directories so the right people find you first.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Lead Generation</h3>
+            <p>Turn traffic into inquiries. We build landing pages and campaigns designed to capture interest and start real conversations with potential customers.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Performance Analytics</h3>
+            <p>See what's working in plain English. No jargon dashboards—just clear reports that show which efforts produce results and which don't.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENTIATION -->
+    <section class="section section--alt" data-nt-section="why-us">
+      <div class="container">
+        <h2>Why Businesses Choose NexTara</h2>
+        <p>We're not a big agency with layers of account managers. We're a small team that uses smart tools to deliver big-agency results at a price that makes sense.</p>
+        <div class="nt-grid nt-grid--2">
+          <div class="nt-card">
+            <h3>AI-Enhanced, Human-Directed</h3>
+            <p>We use AI to find patterns and opportunities faster. Every recommendation is reviewed and approved by our team before it reaches you.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Transparent Pricing</h3>
+            <p>No hidden fees. No long-term contracts. You know exactly what you're paying for and can adjust or cancel anytime.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Results You Can Verify</h3>
+            <p>We show you the actual numbers—calls received, forms submitted, revenue attributed. If it can't be measured, we don't claim credit for it.</p>
+          </div>
+          <div class="nt-card">
+            <h3>Built for SMBs</h3>
+            <p>We don't chase big national brands. Our entire process is designed for businesses like yours—owners who need results, not reports.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE FILTER -->
+    <section id="fit" class="section" data-nt-section="fit">
+      <div class="container">
+        <h2>Is This Right for Your Business?</h2>
+        <p>We work best with certain types of businesses. Here's how to know if we're a good fit.</p>
+        <div class="nt-grid nt-grid--2">
+          <div class="nt-card nt-card--success">
+            <h3>We're a Good Fit If:</h3>
+            <ul>
+              <li>You run a local or regional service business</li>
+              <li>You have 5–100 employees and want to grow</li>
+              <li>You're ready to invest $1,500–$5,000/month in marketing</li>
+              <li>You want clear numbers, not marketing fluff</li>
+            </ul>
+          </div>
+          <div class="nt-card nt-card--neutral">
+            <h3>We're Probably Not Right If:</h3>
+            <ul>
+              <li>You're looking for the cheapest option available</li>
+              <li>You prefer long reports over actionable recommendations</li>
+              <li>You're not ready to make changes based on data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS OVERVIEW -->
+    <section id="how-it-works" class="section section--alt" data-nt-section="process">
+      <div class="container">
+        <h2>How the Process Works</h2>
+        <p>Simple steps, no surprises. Here's what happens when you work with us.</p>
+        <div class="nt-steps">
+          <div class="nt-step">
+            <span class="nt-step__number">1</span>
+            <div class="nt-step__content">
+              <h3>Free Assessment</h3>
+              <p>We analyze your current online presence and identify the biggest opportunities for growth. Takes 15 minutes of your time; we do the rest.</p>
+            </div>
+          </div>
+          <div class="nt-step">
+            <span class="nt-step__number">2</span>
+            <div class="nt-step__content">
+              <h3>Custom Plan</h3>
+              <p>Based on the assessment, we build a growth plan tailored to your business, budget, and goals. You approve before we start any work.</p>
+            </div>
+          </div>
+          <div class="nt-step">
+            <span class="nt-step__number">3</span>
+            <div class="nt-step__content">
+              <h3>Implementation</h3>
+              <p>We execute the plan—optimizing your visibility, launching campaigns, and tracking results. You get monthly updates in plain language.</p>
+            </div>
+          </div>
+          <div class="nt-step">
+            <span class="nt-step__number">4</span>
+            <div class="nt-step__content">
+              <h3>Review & Adjust</h3>
+              <p>Every quarter, we review what's working and refine the approach. You stay in control—adjust scope, pause, or cancel anytime.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIMARY CTA -->
+    <section id="get-started" class="section section--cta" data-nt-section="cta">
+      <div class="container">
+        <h2>Ready to See What's Possible?</h2>
+        <p>Get a free, no-obligation assessment of your online presence. We'll show you exactly where you're leaving opportunities on the table—and how to capture them.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/contact/">Get Your Free Growth Assessment</a>
+        </div>
+        <p class="nt-cta__note">No credit card. No commitment. Just clarity.</p>
+      </div>
+    </section>
+
+    <!-- TRUST SIGNALS -->
+    <section class="section" data-nt-section="trust">
+      <div class="container">
+        <h2>Trusted by Growing Businesses</h2>
+        <div class="nt-stats">
+          <div class="nt-stat">
+            <span class="nt-stat__number">150+</span>
+            <span class="nt-stat__label">SMBs Served</span>
+          </div>
+          <div class="nt-stat">
+            <span class="nt-stat__number">3.2x</span>
+            <span class="nt-stat__label">Average Lead Increase</span>
+          </div>
+          <div class="nt-stat">
+            <span class="nt-stat__number">92%</span>
+            <span class="nt-stat__label">Client Retention Rate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-</BaseLayout>
+</Layout>

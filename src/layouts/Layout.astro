@@ -1,9 +1,8 @@
 ---
 import "../styles/global.css";
 import TelemetryInit from "../components/TelemetryInit.astro";
-import StructuredData from "../components/seo/StructuredData.astro";
-import type { GraphNode } from "../components/seo/StructuredData.astro";
-import { buildOrganization, buildWebSite, buildWebPage } from "../lib/schema/nodes";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 /**
  * MVIG (Minimum Viable Indexing Gate)
@@ -15,7 +14,7 @@ import { buildOrganization, buildWebSite, buildWebPage } from "../lib/schema/nod
  *
  * Phase 5 Update:
  * - Schema now uses centralized StructuredData component with @graph structure
- * - Supports extraGraph prop for page-specific schema (BreadcrumbList, Service, etc.)
+ * - Structured data is temporarily inlined at the layout level (SMB override)
  */
 
 interface Props {
@@ -24,15 +23,14 @@ interface Props {
   ogImagePath?: string;
   robots?: string;
   /** Additional schema nodes from child layouts (BreadcrumbList, Service, ItemList) */
-  extraGraph?: GraphNode[];
 }
 
 const {
   title: pageTitle,
   description: pageDescription,
   ogImagePath,
-  robots: robotsOverride,
-  extraGraph = [],
+    robots: robotsOverride,
+
 } = Astro.props;
 
 // Production origin is the canonical source of truth
@@ -51,17 +49,19 @@ const normalizedPath =
 const canonicalUrl = new URL(normalizedPath, CANONICAL_ORIGIN).toString();
 
 // Default robots by environment
-const defaultRobots = isProduction ? "index,follow" : "noindex,nofollow";
+const netlifyContext = process.env.CONTEXT; // production | deploy-preview | branch-deploy | undefined
+const isProdDeploy = netlifyContext ? netlifyContext === "production" : import.meta.env.PROD;
+const defaultRobots = isProdDeploy ? "index,follow" : "noindex,nofollow";
+const robots = isProdDeploy ? (robotsOverride ?? defaultRobots) : defaultRobots;
 
 // Final robots:
 // - Non-prod: always noindex,nofollow (do not allow overrides to weaken this)
 // - Prod: allow per-page override (e.g., /dcs-diagnostic/ => noindex,follow)
-const robots = isProduction ? (robotsOverride ?? defaultRobots) : defaultRobots;
 
 // Defaults (Phase 2-safe)
-const DEFAULT_TITLE = "NexTara AI Solutions — Digital Credibility System (DCS)";
+const DEFAULT_TITLE = "NexTara AI Solutions | AI-Powered Digital Growth for SMBs";
 const DEFAULT_DESCRIPTION =
-  "Governed digital growth systems. Measure credibility, fix trust gaps, and prove what's real—across humans and machines.";
+  "Get found online, turn visitors into leads, and see real ROI. AI-powered digital marketing built for small and medium businesses.";
 
 const title = pageTitle || DEFAULT_TITLE;
 const description = pageDescription || DEFAULT_DESCRIPTION;
@@ -69,20 +69,6 @@ const description = pageDescription || DEFAULT_DESCRIPTION;
 // Optional OG image
 const ogImageAbs = ogImagePath ? new URL(ogImagePath, CANONICAL_ORIGIN).toString() : undefined;
 
-// Phase 5: Build schema graph using centralized node builders
-const baseGraph: GraphNode[] = [
-  buildOrganization(CANONICAL_ORIGIN),
-  buildWebSite(CANONICAL_ORIGIN),
-  buildWebPage({
-    origin: CANONICAL_ORIGIN,
-    path: normalizedPath,
-    title,
-    description,
-  }),
-];
-
-// Merge base graph with page-specific nodes (deduplication handled by StructuredData)
-const schemaGraph = [...baseGraph, ...extraGraph];
 ---
 
 <!doctype html>
@@ -116,7 +102,40 @@ const schemaGraph = [...baseGraph, ...extraGraph];
 <meta name="twitter:image" content="https://nextara-ai-solutions.com/og/og-1200x630.png" />
 
     <!-- Structured Data (Phase 5: centralized @graph) -->
-    <StructuredData graph={schemaGraph} />
+    <!-- Structured Data (Temporary SMB Override) -->
+<script type="application/ld+json">
+{
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nextara-ai-solutions.com/#organization",
+        "name": "NexTara AI Solutions",
+        "url": "https://nextara-ai-solutions.com/",
+        "description": "SEO, Google Ads, and content marketing for small and medium businesses—built to turn visibility into qualified leads and measurable ROI."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nextara-ai-solutions.com/#website",
+        "url": "https://nextara-ai-solutions.com/",
+        "name": "NexTara AI Solutions",
+        "publisher": { "@id": "https://nextara-ai-solutions.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        "url": canonicalUrl,
+        "name": title,
+        "description": description,
+        "isPartOf": { "@id": "https://nextara-ai-solutions.com/#website" },
+        "publisher": { "@id": "https://nextara-ai-solutions.com/#organization" }
+      }
+    ]
+  })
+}
+</script>
+
 
     <!-- Google Tag Manager (UNCHANGED) -->
     <script>
@@ -150,8 +169,9 @@ const schemaGraph = [...baseGraph, ...extraGraph];
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-
+    <Header />
     <slot />
+    <Footer />
     <TelemetryInit />
   </body>
 </html>

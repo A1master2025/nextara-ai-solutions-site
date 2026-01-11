@@ -1,0 +1,6 @@
+﻿C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\data\services.ts:164:name: "Tracking Governance",
+C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\data\services.ts:165:seoTitle: "Tracking Governance — NexTara AI Solutions",
+C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\lib\schema\nodes.ts:67:'Digital Growth & Compliance Systems for Serious Operators. Enterprise-grade DCS audits, tracking governance, SEO, conversion architecture, and automation.',
+C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\lib\schema\nodes.ts:172:name: 'NexTara Digital Credibility Services',
+C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\lib\schema\nodes.ts:174:'Enterprise digital growth and compliance systems including DCS audits, tracking governance, SEO, conversion architecture, paid media, and automation.',
+C:\Users\drbri\OneDrive\Desktop\nextara-ai-solutions-site\src\pages\services\index.astro:45:description="Enterprise digital credibility services. DCS audits, tracking governance, SEO systems, conversion architecture, paid media, and automation."
