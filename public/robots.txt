@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nextara-ai-solutions.com/sitemap-main.xml
+# AI crawlers (explicit allow on production)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://nextara-ai-solutions.com/sitemap-index.xml
+Sitemap: https://nextara-ai-solutions.com/sitemap.xml

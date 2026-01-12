@@ -1,0 +1,53 @@
+strategy_lock:
+  status: "LOCKED"
+  last_verified: "2026-01-12"
+  authority_stack:
+    level_1:
+      name: "NexTara SMB Growth Blueprint™"
+      role: "Supreme Authority"
+      governs:
+        - "ICP"
+        - "Offers and service priorities"
+        - "Execution sequencing"
+        - "Resource allocation"
+        - "Strategic exclusions"
+    level_2:
+      name: "Enterprise-Grade Public Positioning & Messaging Strategy Prompt"
+      role: "Controlled Interpreter"
+      governs:
+        - "Market-facing messaging"
+        - "Positioning clarity"
+        - "Tone and readability for SMBs"
+      constraints:
+        - "Must not override Level 1 ICP, offers, exclusions, or priorities"
+
+  icp:
+    business_size_employees: "5–100"
+    annual_revenue_usd: "500k–20M"
+    decision_makers:
+      primary: "Owner/Founder"
+      secondary: "Marketing Manager / Head of Growth"
+    marketing_spend_monthly_usd: "1000–6000"
+    maturity: "Growing → Scaling; not starting from zero"
+
+  positioning:
+    statement: "Practical, AI-assisted SEO + ads + tracking for SMBs focused on leads and ROI."
+    avoid:
+      - "Enterprise jargon"
+      - "AI hype"
+      - "Fully automated claims"
+      - "Governance/policy framing in buyer-facing copy"
+    prefer:
+      - "Leads"
+      - "ROI"
+      - "Proof"
+      - "Clear"
+      - "Practical"
+      - "Trust"
+      - "Results"
+
+  focus_services:
+    - "SEO for SMBs"
+    - "Google Ads optimization"
+    - "Tracking setup and conversion measurement"
+    - "AI-assisted content support (as an efficiency advantage)"

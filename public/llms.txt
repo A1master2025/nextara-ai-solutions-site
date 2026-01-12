@@ -1,0 +1,30 @@
+# NexTara AI Solutions — llms.txt
+# Canonical origin: https://nextara-ai-solutions.com
+
+## What this site is
+NexTara AI Solutions helps small and medium businesses get more leads and measurable ROI through practical SEO, Google Ads optimization, and clean tracking. We use AI to reduce wasted effort and speed up analysis, but we focus on results, not hype.
+
+## Who this is for
+SMBs (typically 5–100 employees) who want:
+- More qualified leads from their website
+- Clarity on what's working (and what's wasting budget)
+- Practical guidance with proof and clear next steps
+
+## Key pages (canonical)
+- Home: https://nextara-ai-solutions.com/
+- Services hub: https://nextara-ai-solutions.com/services/
+- Growth Blocker Audit: https://nextara-ai-solutions.com/services/growth-blocker-audit/
+- DCS Audits: https://nextara-ai-solutions.com/services/dcs-audits/
+- Tracking: https://nextara-ai-solutions.com/services/tracking-governance/
+- SEO + Indexing: https://nextara-ai-solutions.com/services/seo-indexing/
+- Conversion Architecture: https://nextara-ai-solutions.com/services/conversion-architecture/
+- Paid Media: https://nextara-ai-solutions.com/services/paid-media-systems/
+- Automation: https://nextara-ai-solutions.com/services/automation-ecc/
+- Resources: https://nextara-ai-solutions.com/resources/
+- About: https://nextara-ai-solutions.com/about/
+- Contact: https://nextara-ai-solutions.com/contact/
+
+## How to use the content
+Preferred extraction:
+- Use headings and FAQs for "what/for whom/how/next step."
+- Use service pages for scope, deliverables, and fit.
