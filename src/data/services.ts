@@ -175,7 +175,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     seoTitle: "DCS Audits — NexTara AI Solutions",
     metaDescription: "Comprehensive Digital Credibility System audits that identify gaps in trust signals, technical SEO, and conversion architecture.",
     outcomeHeadline: "Know exactly where your digital credibility breaks down—and what to fix first.",
-    postureSubhead: "A governed audit process that produces verifiable findings, not opinions.",
+    postureSubhead: "A structured audit that shows what's blocking leads and trust—backed by evidence, not opinions.",
     audienceFit: [
       "Business owners who suspect their digital presence is underperforming but can't pinpoint why",
       "Teams preparing for a rebrand, site migration, or major campaign",
@@ -223,7 +223,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     seoTitle: "Tracking Governance — NexTara AI Solutions",
     metaDescription: "GTM-only instrumentation, clean analytics, event hygiene, and proof-based reporting to govern performance with confidence.",
     outcomeHeadline: "Trust your numbers. Know they're right.",
-    postureSubhead: "Measurement systems governed by policy, not guesswork.",
+    postureSubhead: "Tracking built on clean rules and proof—so you can trust every lead and dollar.",
     audienceFit: [
       "Businesses with analytics they don't trust or can't explain",
       "Teams preparing for paid media scale who need clean conversion data",
@@ -236,14 +236,14 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     deliverables: [
       { title: "GTM Container Audit", description: "Full inventory of tags, triggers, and variables with health assessment" },
       { title: "Measurement Plan", description: "Documented event taxonomy aligned to business KPIs" },
-      { title: "Clean Container", description: "Rebuilt GTM container with proper naming, versioning, and governance" },
+      { title: "Clean Container", description: "Rebuilt GTM container with proper naming, versioning, and clear ownership rules" },
       { title: "Validation Report", description: "Evidence that every configured event fires correctly" },
     ],
     processSteps: [
       { step: 1, title: "Discovery", description: "Understand your business goals and current measurement state." },
       { step: 2, title: "Container Audit", description: "Inventory and assess existing GTM/GA4 implementation." },
       { step: 3, title: "Measurement Design", description: "Define event taxonomy and data layer requirements." },
-      { step: 4, title: "Implementation", description: "Build or rebuild GTM container with governance standards." },
+      { step: 4, title: "Implementation", description: "Build or rebuild GTM container with clean, documented standards." },
       { step: 5, title: "Validation", description: "Test every event, document proof, deliver with walkthrough." },
     ],
     proofChecklist: [
@@ -258,7 +258,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       { question: "Do you work with GA4 and GTM only?", answer: "Primarily yes. We can advise on other platforms but specialize in the Google stack." },
       { question: "Will this affect my historical data?", answer: "No. We build forward; we don't modify historical data. New tracking improves future accuracy." },
       { question: "How do I know the new tracking is correct?", answer: "We provide validation reports with screenshots and test evidence for every event." },
-      { question: "What if my developers push changes that break tracking?", answer: "We document governance rules and can set up monitoring alerts for drift detection." },
+      { question: "What if my developers push changes that break tracking?", answer: "We document clear rules and can set up monitoring alerts for drift detection." },
       { question: "Can you train my team?", answer: "Yes. Handoff includes documentation and optional training sessions." },
     ],
     relatedServices: ["dcs-audits", "conversion-architecture", "paid-media-systems"],
@@ -271,7 +271,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     seoTitle: "SEO + Indexing Systems — NexTara AI Solutions",
     metaDescription: "Sitemaps, internal linking, crawl policy, structured data, and indexing controls that govern discoverability in search and AI answers.",
     outcomeHeadline: "Get found by search engines and AI systems—on your terms.",
-    postureSubhead: "Indexing architecture governed by policy, not left to chance.",
+    postureSubhead: "SEO foundations that help Google find, understand, and rank you—without wasting effort on the wrong pages.",
     audienceFit: [
       "Businesses with pages that should rank but don't appear in search",
       "Teams launching new sites or migrating domains",
@@ -366,23 +366,23 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     order: 5,
     name: "Paid Media Systems",
     seoTitle: "Paid Media Systems — NexTara AI Solutions",
-    metaDescription: "Campaign structure + measurement discipline so spend is governed, not guessed—built to scale without losing control.",
+    metaDescription: "Campaign structure + measurement discipline so spend is proven, not guessed—built to scale without losing control.",
     outcomeHeadline: "Scale paid media with confidence, not guesswork.",
-    postureSubhead: "Campaign systems governed by data and accountability.",
+    postureSubhead: "Campaign systems built on clean data and proof.",
     audienceFit: [
       "Businesses spending on ads but unsure if it's working",
       "Teams ready to scale but worried about wasting budget",
       "Operators who've been burned by agencies with no transparency",
     ],
     audienceNotFit: [
-      "Those with budgets under $5k/month (not enough data to optimize)",
+      "Businesses with ad spend below ~$2k/month (we'll usually start with SEO + tracking first).",
       "Businesses not ready to trust data over gut feelings",
     ],
     deliverables: [
       { title: "Campaign Audit", description: "Assessment of current account structure, targeting, and performance" },
       { title: "Measurement Framework", description: "Conversion tracking, attribution model, and reporting structure" },
       { title: "Campaign Architecture", description: "Account structure designed for scale and control" },
-      { title: "Governance Playbook", description: "Rules for budget allocation, bid management, and optimization cadence" },
+      { title: "Tracking & Reporting Playbook", description: "Rules for budget allocation, bid management, and optimization cadence" },
     ],
     processSteps: [
       { step: 1, title: "Account Audit", description: "Review current campaigns, structure, and historical performance." },
@@ -414,9 +414,9 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     order: 6,
     name: "Automation (ECC)",
     seoTitle: "Automation (ECC) — NexTara AI Solutions",
-    metaDescription: "Operational automations that reduce manual work, eliminate reporting ambiguity, and connect systems into one governed workflow.",
-    outcomeHeadline: "Eliminate manual work. Connect your systems. Govern the flow.",
-    postureSubhead: "Automation built for reliability and auditability—not just speed.",
+    metaDescription: "Operational automations that reduce manual work, eliminate reporting ambiguity, and connect systems into one reliable workflow with clear ownership.",
+    outcomeHeadline: "Eliminate manual work. Connect your systems. Keep it reliable.",
+    postureSubhead: "Automation built for reliability and clear ownership—not fragile 'set and forget' workflows.",
     audienceFit: [
       "Businesses drowning in manual reporting and data entry",
       "Teams with disconnected tools that don't talk to each other",

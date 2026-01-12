@@ -8,7 +8,7 @@ export const SITE = {
   origin: "https://nextara-ai-solutions.com",
   defaultTitle: "NexTara AI Solutions — Digital Credibility System (DCS)",
   defaultDescription:
-    "Governed digital growth systems. Measure credibility, fix trust gaps, and prove what's real—across humans and machines.",
+    "Practical digital growth systems that drive leads and ROI. Measure what matters, fix trust gaps, and prove what's real—across humans and machines.",
   social: {
     twitter: "@nextaraai",
   },
