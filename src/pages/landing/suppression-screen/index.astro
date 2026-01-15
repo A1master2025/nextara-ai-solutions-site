@@ -102,15 +102,7 @@
       </div>
     </div>
 
-    <!-- Debug / raw JSON -->
-    <details style="margin-top: 12px; border: 1px solid #ddd; padding: 10px;">
-      <summary style="cursor: pointer; font-weight: 700;">Show raw JSON</summary>
-      <pre
-        id="ss-raw"
-        style="margin: 10px 0 0; white-space: pre; overflow: auto; max-height: 360px; padding: 10px; border: 1px solid #eee;"
-      ></pre>
-    </details>
-  </div>
+    </div>
 
   <script>
   const form = document.getElementById("ss-form");
@@ -138,9 +130,7 @@
   const ctaPrimaryEl = document.getElementById("ss-cta-primary");
   const ctaSecondaryEl = document.getElementById("ss-cta-secondary");
 
-  const rawEl = document.getElementById("ss-raw");
-
-  function applyRiskBadge(level) {
+    function applyRiskBadge(level) {
     const v = (level || "UNKNOWN").toUpperCase();
     if (!riskEl) return;
 
@@ -185,9 +175,8 @@
   async function runScan(url) {
     setText(statusEl, "Running scan…");
     if (resultWrap) resultWrap.style.display = "none";
-    if (rawEl) rawEl.textContent = "";
-
-    const endpoint =
+    
+        const endpoint =
       "/.netlify/functions/suppression-screen?url=" + encodeURIComponent(url);
 
     const res = await fetch(endpoint, {
@@ -197,7 +186,6 @@
 
     // Read as text first so we can display any non-JSON error payloads
     const text = await res.text();
-    if (rawEl) rawEl.textContent = text || "(empty response)";
 
     let data;
     try {
@@ -225,8 +213,8 @@
     setText(p3El, data?.result?.counts?.p3 ?? 0);
 
     setText(proofFindingEl, data?.proof?.finding || "");
-    setText(proofSeverityEl, data?.proof?.severity ? `Severity: ${data.proof.severity}` : "");
-    setText(proofCategoryEl, data?.proof?.category ? `Category: ${data.proof.category}` : "");
+    setText(proofSeverityEl, data?.proof?.severity ? ("Severity: " + data.proof.severity) : "");
+    setText(proofCategoryEl, data?.proof?.category ? ("Category: " + data.proof.category) : "");
     setLink(proofUrlEl, data?.proof?.evidence?.url || "");
     setText(proofSnippetEl, data?.proof?.evidence?.snippet || "");
     setText(proofWhyEl, data?.proof?.why_it_suppresses || "");
@@ -251,7 +239,7 @@
       await runScan(url);
     } catch (err) {
       setText(statusEl, "Scan failed (network or parsing error).");
-      if (rawEl) rawEl.textContent = String(err);
+
     }
   });
 </script>
