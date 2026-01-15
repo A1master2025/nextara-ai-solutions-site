@@ -1,0 +1,258 @@
+<section style="margin: 44px 0; padding: 18px; border: 2px solid #111;">
+  <h2 style="margin: 0 0 10px;">Run the Suppression Screen</h2>
+  <p style="margin: 0 0 12px; font-size: 14px; opacity: 0.9;">
+    Enter a full URL (include https://). Example: https://example.com
+  </p>
+
+  <form id="ss-form" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <input
+      id="ss-url"
+      name="url"
+      type="url"
+      placeholder="https://example.com"
+      required
+      style="flex: 1; min-width: 320px; padding: 10px 12px; border: 1px solid #999;"
+    />
+    <button
+      type="submit"
+      style="padding: 10px 14px; border: 1px solid #111; background: #fff; cursor: pointer;"
+    >
+      Run scan
+    </button>
+  </form>
+
+  <p id="ss-status" style="margin: 10px 0 0; font-size: 14px; opacity: 0.85;"></p>
+
+  <!-- Result UI -->
+  <div id="ss-result" style="display: none; margin-top: 16px;">
+    <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+      <div style="font-weight: 700;">Risk Level</div>
+      <span
+        id="ss-risk"
+        style="display: inline-block; padding: 6px 10px; border: 2px solid #111; font-weight: 700;"
+      >
+        —
+      </span>
+      <div style="font-size: 13px; opacity: 0.85;" id="ss-interpretation"></div>
+    </div>
+
+    <div style="margin-top: 12px; border: 1px solid #ddd; padding: 12px;">
+      <div style="font-weight: 700; margin-bottom: 8px;">Severity Counts</div>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px;">
+        <div><strong>P0</strong>: <span id="ss-p0">0</span></div>
+        <div><strong>P1</strong>: <span id="ss-p1">0</span></div>
+        <div><strong>P2</strong>: <span id="ss-p2">0</span></div>
+        <div><strong>P3</strong>: <span id="ss-p3">0</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 12px; border: 1px solid #ddd; padding: 12px;">
+      <div style="font-weight: 700; margin-bottom: 8px;">Proof Finding</div>
+
+      <div style="font-size: 14px; margin-bottom: 8px;">
+        <strong id="ss-proof-finding">—</strong>
+      </div>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px; opacity: 0.9; margin-bottom: 8px;">
+        <div>Severity: <strong id="ss-proof-severity">—</strong></div>
+        <div>Category: <strong id="ss-proof-category">—</strong></div>
+      </div>
+
+      <div style="font-size: 14px; margin: 8px 0;">
+        Evidence:
+        <a id="ss-proof-url" href="#" target="_blank" rel="noopener noreferrer">—</a>
+      </div>
+
+      <div style="font-size: 13px; opacity: 0.9; border-left: 3px solid #ddd; padding-left: 10px; margin: 8px 0;">
+        <div style="font-weight: 700; margin-bottom: 4px;">Snippet</div>
+        <div id="ss-proof-snippet">—</div>
+      </div>
+
+      <div style="font-size: 13px; opacity: 0.9; margin-top: 8px;">
+        <div style="font-weight: 700; margin-bottom: 4px;">Why it suppresses</div>
+        <div id="ss-proof-why">—</div>
+      </div>
+
+      <div style="font-size: 13px; opacity: 0.9; margin-top: 8px;">
+        <div style="font-weight: 700; margin-bottom: 4px;">How to verify</div>
+        <div id="ss-proof-verify">—</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 12px; border: 1px solid #111; padding: 12px;">
+      <div style="font-weight: 700; margin-bottom: 8px;">Next step</div>
+      <p id="ss-confidence" style="margin: 0 0 10px; font-size: 13px; opacity: 0.85;"></p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a
+          id="ss-cta-primary"
+          href="/landing/growth-blocker-audit/"
+          style="display: inline-block; padding: 10px 14px; border: 1px solid #111; text-decoration: none;"
+        >
+          Book Growth Blocker Audit
+        </a>
+
+        <a
+          id="ss-cta-secondary"
+          href="/services/dcs/"
+          style="display: inline-block; padding: 10px 14px; border: 1px solid #888; text-decoration: none;"
+        >
+          Learn About Core
+        </a>
+      </div>
+    </div>
+
+    <!-- Debug / raw JSON -->
+    <details style="margin-top: 12px; border: 1px solid #ddd; padding: 10px;">
+      <summary style="cursor: pointer; font-weight: 700;">Show raw JSON</summary>
+      <pre
+        id="ss-raw"
+        style="margin: 10px 0 0; white-space: pre; overflow: auto; max-height: 360px; padding: 10px; border: 1px solid #eee;"
+      ></pre>
+    </details>
+  </div>
+
+  <script>
+  const form = document.getElementById("ss-form");
+  const input = document.getElementById("ss-url");
+  const statusEl = document.getElementById("ss-status");
+  const resultWrap = document.getElementById("ss-result");
+
+  const riskEl = document.getElementById("ss-risk");
+  const interpretationEl = document.getElementById("ss-interpretation");
+
+  const p0El = document.getElementById("ss-p0");
+  const p1El = document.getElementById("ss-p1");
+  const p2El = document.getElementById("ss-p2");
+  const p3El = document.getElementById("ss-p3");
+
+  const proofFindingEl = document.getElementById("ss-proof-finding");
+  const proofSeverityEl = document.getElementById("ss-proof-severity");
+  const proofCategoryEl = document.getElementById("ss-proof-category");
+  const proofUrlEl = document.getElementById("ss-proof-url");
+  const proofSnippetEl = document.getElementById("ss-proof-snippet");
+  const proofWhyEl = document.getElementById("ss-proof-why");
+  const proofVerifyEl = document.getElementById("ss-proof-verify");
+
+  const confidenceEl = document.getElementById("ss-confidence");
+  const ctaPrimaryEl = document.getElementById("ss-cta-primary");
+  const ctaSecondaryEl = document.getElementById("ss-cta-secondary");
+
+  const rawEl = document.getElementById("ss-raw");
+
+  function applyRiskBadge(level) {
+    const v = (level || "UNKNOWN").toUpperCase();
+    if (!riskEl) return;
+
+    riskEl.textContent = v;
+
+    // Industry-standard: colored status pill + still shows text (not color-only)
+    riskEl.style.display = "inline-block";
+    riskEl.style.padding = "6px 10px";
+    riskEl.style.border = "2px solid #111";
+    riskEl.style.borderRadius = "999px";
+    riskEl.style.fontWeight = "800";
+    riskEl.style.letterSpacing = "0.4px";
+
+    const palette = {
+      GREEN: { bg: "#e7f6ea", fg: "#0f5132", border: "#0f5132" },
+      AMBER: { bg: "#fff4e5", fg: "#7a4a00", border: "#7a4a00" },
+      RED: { bg: "#fdecea", fg: "#842029", border: "#842029" },
+    };
+
+    const c = palette[v] || { bg: "#f2f2f2", fg: "#111", border: "#111" };
+    riskEl.style.backgroundColor = c.bg;
+    riskEl.style.color = c.fg;
+    riskEl.style.borderColor = c.border;
+  }
+
+  function setText(el, value) {
+    if (!el) return;
+    el.textContent = value == null ? "" : String(value);
+  }
+
+  function setLink(el, href) {
+    if (!el) return;
+    if (!href) {
+      el.removeAttribute("href");
+      el.textContent = "";
+      return;
+    }
+    el.setAttribute("href", href);
+    el.textContent = href;
+  }
+
+  async function runScan(url) {
+    setText(statusEl, "Running scan…");
+    if (resultWrap) resultWrap.style.display = "none";
+    if (rawEl) rawEl.textContent = "";
+
+    const endpoint =
+      "/.netlify/functions/suppression-screen?url=" + encodeURIComponent(url);
+
+    const res = await fetch(endpoint, {
+      method: "GET",
+      headers: { accept: "application/json" },
+    });
+
+    // Read as text first so we can display any non-JSON error payloads
+    const text = await res.text();
+    if (rawEl) rawEl.textContent = text || "(empty response)";
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      setText(statusEl, "Scan failed (response was not JSON).");
+      return;
+    }
+
+    if (!res.ok || data?.error) {
+      setText(statusEl, data?.error_message || "Scan failed.");
+      return;
+    }
+
+    // Success
+    setText(statusEl, "Scan complete.");
+    if (resultWrap) resultWrap.style.display = "block";
+
+    applyRiskBadge(data?.result?.risk_level);
+    setText(interpretationEl, data?.result?.interpretation || "");
+
+    setText(p0El, data?.result?.counts?.p0 ?? 0);
+    setText(p1El, data?.result?.counts?.p1 ?? 0);
+    setText(p2El, data?.result?.counts?.p2 ?? 0);
+    setText(p3El, data?.result?.counts?.p3 ?? 0);
+
+    setText(proofFindingEl, data?.proof?.finding || "");
+    setText(proofSeverityEl, data?.proof?.severity ? `Severity: ${data.proof.severity}` : "");
+    setText(proofCategoryEl, data?.proof?.category ? `Category: ${data.proof.category}` : "");
+    setLink(proofUrlEl, data?.proof?.evidence?.url || "");
+    setText(proofSnippetEl, data?.proof?.evidence?.snippet || "");
+    setText(proofWhyEl, data?.proof?.why_it_suppresses || "");
+    setText(proofVerifyEl, data?.proof?.how_to_verify || "");
+
+    setText(confidenceEl, data?.confidence_note || "");
+
+    // CTA buttons (keep whatever href your HTML already has; we only set label text)
+    if (ctaPrimaryEl) ctaPrimaryEl.textContent = data?.cta?.primary?.label || ctaPrimaryEl.textContent;
+    if (ctaSecondaryEl) ctaSecondaryEl.textContent = data?.cta?.secondary?.label || ctaSecondaryEl.textContent;
+  }
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const url = (input?.value || "").trim();
+    if (!url) {
+      setText(statusEl, "Enter a full URL (include https://).");
+      return;
+    }
+
+    try {
+      await runScan(url);
+    } catch (err) {
+      setText(statusEl, "Scan failed (network or parsing error).");
+      if (rawEl) rawEl.textContent = String(err);
+    }
+  });
+</script>
+</section>

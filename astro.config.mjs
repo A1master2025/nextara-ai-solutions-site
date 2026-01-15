@@ -1,15 +1,21 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://nextara-ai-solutions.com',
+  site: "https://nextara-ai-solutions.com",
   integrations: [
     sitemap({
       filter: (page) => {
-        const p = typeof page === "string" ? page : page.pathname || String(page);
-        return !p.includes("/dcs-diagnostic/") && !p.includes("/thank-you/");
+        // `page` can be a string path or a URL-like object depending on integration internals.
+        // Normalize to a clean pathname string and strip trailing slash.
+        const pathname = String(page).replace(/\/$/, "");
+
+        // Exclude these paths from sitemap output:
+        return (
+          !pathname.startsWith("/dcs-diagnostic") &&
+          !pathname.startsWith("/dcs-core")
+        );
       },
     }),
   ],

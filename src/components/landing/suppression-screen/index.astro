@@ -1,0 +1,20 @@
+---
+import LandingLayout from "../../../layouts/LandingLayout.astro";
+import LandingPage from "../../../components/landing/LandingPage.astro";
+import { getLanding } from "../../../data/landings";
+
+const landing = getLanding("suppression-screen");
+if (!landing) {
+  return new Response("Not found", { status: 404 });
+}
+---
+
+<LandingLayout
+  title={landing.seo.metaTitle}
+  description={landing.seo.metaDescription}
+  canonicalPath={landing.seo.canonicalPath}
+  indexable={landing.seo.indexable}
+  ogImage={landing.seo.ogImage}
+>
+  <LandingPage landing={landing} />
+</LandingLayout>

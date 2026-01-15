@@ -1,0 +1,65 @@
+---
+// src/layouts/LandingLayout.astro
+type Props = {
+  title: string;
+  description: string;
+  canonicalPath: string; // expected like "/landing/suppression-screen/"
+  indexable?: boolean; // landing default: false
+  ogImage?: string; // expected like "/og/suppression-screen.png"
+};
+
+const {
+  title,
+  description,
+  canonicalPath,
+  indexable = false,
+  ogImage,
+} = Astro.props;
+
+// Canonical origin is locked to production by default.
+// If you ever want environment-specific canonicals, make it an explicit config decision.
+const siteOrigin = "https://nextara-ai-solutions.com";
+
+// Normalize canonicalPath defensively
+const normalizedPath = canonicalPath.startsWith("/")
+  ? canonicalPath
+  : `/${canonicalPath}`;
+
+const canonicalUrl = new URL(normalizedPath, siteOrigin).toString();
+const robots = indexable ? "index,follow" : "noindex,follow";
+
+const normalizedOgImage =
+  ogImage
+    ? new URL(ogImage.startsWith("/") ? ogImage : `/${ogImage}`, siteOrigin).toString()
+    : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    {normalizedOgImage ? <meta property="og:image" content={normalizedOgImage} /> : null}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    {normalizedOgImage ? <meta name="twitter:image" content={normalizedOgImage} /> : null}
+  </head>
+
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
