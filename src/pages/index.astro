@@ -9,7 +9,7 @@ const pageDescription = 'Get found online, turn visitors into leads, and see rea
   <main>
 
     <!-- HERO -->
-    <section class="nt-hero">
+    <section class="nt-hero nt-hero--tight">
       <div class="container">
         <h1>AI-Powered Digital Growth for Small & Medium Businesses</h1>
         <p class="nt-hero__subtitle">
@@ -38,7 +38,7 @@ const pageDescription = 'Get found online, turn visitors into leads, and see rea
     </section>
 
     <!-- POSITIONING REFRAME -->
-    <section class="section section--alt" data-nt-section="reframe">
+    <section id="how-it-works" class="section section--alt" data-nt-section="reframe">
       <div class="container">
         <h2>What If Your Marketing Actually Made Sense?</h2>
         <p>
@@ -209,3 +209,18 @@ const pageDescription = 'Get found online, turn visitors into leads, and see rea
 
   </main>
 </Layout>
+
+<style>
+  /* Home hero spacing: tightened variant */
+  .nt-hero.nt-hero--tight {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  @media (max-width: 768px) {
+    .nt-hero.nt-hero--tight {
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+  }
+</style>
