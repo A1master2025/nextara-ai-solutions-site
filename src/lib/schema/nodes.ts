@@ -64,7 +64,7 @@ export function buildOrganization(origin: string): SchemaNode {
       height: 512,
     },
     description:
-      'Digital Growth & Compliance Systems for Serious Operators. Enterprise-grade DCS audits, tracking governance, SEO, conversion architecture, and automation.',
+      'NexTara AI Solutions helps small and mid-sized businesses improve lead generation, measurement, website performance, and practical AI-enabled marketing execution.',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
@@ -169,9 +169,9 @@ export function buildItemList(
   return {
     '@type': 'ItemList',
     '@id': itemListId(origin),
-    name: 'NexTara Digital Credibility Services',
+    name: 'NexTara AI Solutions Services',
     description:
-      'Enterprise digital growth and compliance systems including DCS audits, tracking governance, SEO, conversion architecture, paid media, and automation.',
+      'SMB-focused website strategy, analytics setup, conversion tracking, SEO foundations, and practical growth systems designed to improve visibility, lead flow, and operational clarity.',
     numberOfItems: services.length,
     itemListElement: services.map((svc, index) => ({
       '@type': 'ListItem',
