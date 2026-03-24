@@ -803,16 +803,16 @@ section.section--cta h2,
 }
 
 /* --- Button Fix for Industries Pages --- */
-.hero--industries .btn-primary,
-.hero--dod .btn-primary,
-.section--cta .btn-primary {
+.hero--industries .btn--primary,
+.hero--dod .btn--primary,
+.section--cta .btn--primary {
   background-color: var(--brand-surface);
   color: var(--brand-primary);
 }
 
-.hero--industries .btn-primary:hover,
-.hero--dod .btn-primary:hover,
-.section--cta .btn-primary:hover {
+.hero--industries .btn--primary:hover,
+.hero--od .btn--primary:hover,
+.section--cta .btn--primary:hover {
   background-color: var(--brand-surface-muted);
   color: var(--brand-primary);
 }
