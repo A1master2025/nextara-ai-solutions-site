@@ -499,7 +499,7 @@ a:focus-visible {
 }
 
 .section--cta h2 {
-  color: var(--brand-surface);
+  color: var(--brand-surface) !important;
   margin-bottom: 1rem;
 }
 
