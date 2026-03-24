@@ -13,8 +13,7 @@
 // ============================================================
 
 export const SERVICE_SLUGS = [
-  "growth-blocker-audit",
-  "dcs-audits",
+  "growth-blocker-audit",  
   "tracking-governance",
   "seo-indexing",
   "conversion-architecture",
@@ -100,8 +99,8 @@ export const CTA_DEFAULTS = {
     href: `/contact/?service=${encodeURIComponent(slug)}`,
   }),
   secondary: (): CTA => ({
-    label: "Run the DCS Diagnostic",
-    href: "/dcs-diagnostic/",
+    label: "Schedule a Consultation",
+    href: "/contact/",
   }),
   microTrust: "Response within 1 business day. You'll receive a scoped plan and clear next-step options.",
 } as const;
@@ -163,59 +162,12 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       href: "/contact/?service=growth-blocker-audit",
     },
     secondaryCta: {
-      label: "See the Full DCS Audit",
-      href: "/services/dcs-audits/",
+      label: "Schedule a Consultation",
+      href: "/contact/",
     },
-    relatedServices: ["dcs-audits", "tracking-governance", "seo-indexing"],
+    relatedServices: ["tracking-governance", "seo-indexing"],
   },
-  "dcs-audits": {
-    slug: "dcs-audits",
-    order: 1,
-    name: "DCS Audits",
-    seoTitle: "DCS Audits — NexTara AI Solutions",
-    metaDescription: "Comprehensive Digital Credibility System audits that identify gaps in trust signals, technical SEO, and conversion architecture.",
-    outcomeHeadline: "Know exactly where your digital credibility breaks down—and what to fix first.",
-    postureSubhead: "A structured audit that shows what's blocking leads and trust—backed by evidence, not opinions.",
-    audienceFit: [
-      "Business owners who suspect their digital presence is underperforming but can't pinpoint why",
-      "Teams preparing for a rebrand, site migration, or major campaign",
-      "Operators who've been burned by agencies and want evidence before action",
-    ],
-    audienceNotFit: [
-      "Those looking for quick SEO hacks or vanity metrics",
-      "Businesses not ready to act on findings",
-    ],
-    deliverables: [
-      { title: "DCS Score Report", description: "Quantified credibility score across 7 dimensions with benchmark comparisons" },
-      { title: "Gap Analysis Document", description: "Prioritized list of credibility gaps with severity ratings" },
-      { title: "Fix Roadmap", description: "Sequenced action plan with effort estimates and dependencies" },
-      { title: "Evidence Pack", description: "Screenshots, tool outputs, and data supporting every finding" },
-    ],
-    processSteps: [
-      { step: 1, title: "Intake", description: "We collect access credentials, business context, and priority questions." },
-      { step: 2, title: "Automated Scan", description: "Tooling runs technical audits across SEO, performance, accessibility, and schema." },
-      { step: 3, title: "Manual Review", description: "Human analysis of trust signals, messaging clarity, and conversion architecture." },
-      { step: 4, title: "Scoring & Benchmarking", description: "Your results compared against industry baselines and competitors." },
-      { step: 5, title: "Delivery & Walkthrough", description: "Report delivered with a live session to answer questions and prioritize." },
-    ],
-    proofChecklist: [
-      { label: "Crawl Coverage", detail: "Every indexable URL scanned and cataloged" },
-      { label: "Schema Validation", detail: "Structured data tested against Google's Rich Results requirements" },
-      { label: "Core Web Vitals", detail: "LCP, CLS, INP measured from real field data where available" },
-      { label: "Trust Signal Inventory", detail: "Reviews, credentials, certifications, and proof points cataloged" },
-      { label: "Conversion Path Mapping", detail: "Every CTA traced from impression to thank-you endpoint" },
-    ],
-    faq: [
-      { question: "How long does an audit take?", answer: "Typically 5-7 business days from intake to delivery, depending on site complexity." },
-      { question: "What access do you need?", answer: "Read-only access to Google Analytics, Search Console, and your CMS. We never request write access." },
-      { question: "Will this break anything on my site?", answer: "No. Audits are read-only. We observe and measure; we don't modify." },
-      { question: "What if I disagree with the findings?", answer: "Every finding includes evidence. We'll walk through any contested items in the delivery session." },
-      { question: "Do you fix what you find?", answer: "Audits are diagnostic. Remediation is available as a separate engagement if you want us to execute." },
-      { question: "How is this different from a free SEO audit tool?", answer: "Free tools check surface metrics. We evaluate credibility architecture, trust signals, and conversion systems—things tools can't see." },
-    ],
-    relatedServices: ["tracking-governance", "seo-indexing", "conversion-architecture"],
-  },
-
+  
   "tracking-governance": {
     slug: "tracking-governance",
     order: 2,
@@ -261,7 +213,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       { question: "What if my developers push changes that break tracking?", answer: "We document clear rules and can set up monitoring alerts for drift detection." },
       { question: "Can you train my team?", answer: "Yes. Handoff includes documentation and optional training sessions." },
     ],
-    relatedServices: ["dcs-audits", "conversion-architecture", "paid-media-systems"],
+    relatedServices: ["conversion-architecture", "paid-media-systems"],
   },
 
   "seo-indexing": {
@@ -309,7 +261,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       { question: "Will you submit my site to search engines?", answer: "We submit sitemaps to Search Console and Bing Webmaster Tools. Beyond that, submission services are unnecessary." },
       { question: "What if Google still doesn't index my pages?", answer: "We investigate further—sometimes the issue is content quality, site reputation, or penalties. We'll tell you what we find." },
     ],
-    relatedServices: ["dcs-audits", "tracking-governance", "conversion-architecture"],
+    relatedServices: ["tracking-governance", "conversion-architecture"],
   },
 
   "conversion-architecture": {
@@ -358,7 +310,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       { question: "What about phone calls and offline conversions?", answer: "We can integrate call tracking and offline import workflows where needed." },
       { question: "Will this work with my CRM?", answer: "We design forms to capture the data your CRM needs. Integration specifics depend on your stack." },
     ],
-    relatedServices: ["tracking-governance", "paid-media-systems", "dcs-audits"],
+    relatedServices: ["tracking-governance", "paid-media-systems"],
   },
 
   "paid-media-systems": {
@@ -406,7 +358,7 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       { question: "Can you take over from my current agency?", answer: "Yes. We audit first, then transition with documented handoff." },
       { question: "What's your fee structure?", answer: "Typically a management fee plus percentage of spend. Details depend on scope and budget." },
     ],
-    relatedServices: ["tracking-governance", "conversion-architecture", "dcs-audits"],
+    relatedServices: ["tracking-governance", "conversion-architecture"],
   },
 
   "automation-ecc": {
