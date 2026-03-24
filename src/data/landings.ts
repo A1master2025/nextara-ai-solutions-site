@@ -25,7 +25,7 @@ export type LandingSeo = {
 export type LandingHero = {
   headline: string;
   subheadline: string;
-  bullets: string[]; // 3–5 bullets; outcome-oriented
+  bullets: string[]; // 3-5 bullets; outcome-oriented
   primaryCta: LandingCta;
   secondaryCta?: LandingCta;
   disclaimer?: string; // optional, for Tier 1 / public-only claims
@@ -61,7 +61,7 @@ export type LandingFit = {
 
 export type LandingFaqItem = {
   q: string;
-  a: string; // 2–4 sentences, first sentence definitional
+  a: string; // 2-4 sentences, first sentence definitional
 };
 
 export type LandingTracking = {
@@ -69,7 +69,6 @@ export type LandingTracking = {
   offerKey:
     | "suppression_screen"
     | "growth_blocker_audit"
-    | "dcs_core"
     | "module_paid_search"
     | "module_authority_content"
     | "module_cro"
@@ -101,7 +100,6 @@ export type Landing = {
 export const LANDING_SLUGS = [
   "suppression-screen",
   "growth-blocker-audit",
-  "dcs-core",
 ] as const;
 
 export type LandingSlug = (typeof LANDING_SLUGS)[number];
@@ -111,10 +109,9 @@ const base = {
 } as const;
 
 /**
- * Canonical landings (initial set)
+ * Canonical landings
  * - suppression-screen (Tier 1 / public signals)
  * - growth-blocker-audit (paid diagnostic)
- * - dcs-core (ongoing measurement system)
  */
 export const LANDINGS: Landing[] = [
   {
@@ -123,18 +120,18 @@ export const LANDINGS: Landing[] = [
     seo: {
       indexable: false,
       canonicalPath: "/landing/suppression-screen/",
-      metaTitle: `SERP Suppression Screen | Know if Google is ignoring your site — fast | ${base.siteName}`,
+      metaTitle: `SERP Suppression Screen | Know if Google is ignoring your site - fast | ${base.siteName}`,
       metaDescription:
-        "Run a public-signals scan to detect indexation and suppression risk. Get a RED/AMBER/GREEN risk level, severity counts, and one proof finding—then book the Growth Blocker Audit to resolve it.",
+        "Run a public-signals scan to detect indexation and suppression risk. Get a RED/AMBER/GREEN risk level, severity counts, and one proof finding-then book the Growth Blocker Audit to resolve it.",
       ogImage: "/og/suppression-screen.png",
     },
     hero: {
       headline: "Find out if Google is suppressing your site.",
       subheadline:
-        "A public-signals-only scan that flags suppression risk without logins—so you can stop guessing and start acting with proof.",
+        "A public-signals-only scan that flags suppression risk without logins-so you can stop guessing and start acting with proof.",
       bullets: [
         "Suppression Risk Level: RED / AMBER / GREEN",
-        "P0–P3 severity counts (root-cause, not noise)",
+        "P0-P3 severity counts (root-cause, not noise)",
         "One proof finding with public evidence you can verify",
       ],
       primaryCta: {
@@ -154,7 +151,7 @@ export const LANDINGS: Landing[] = [
         "This screen uses public signals only. It does not include Search Console or analytics data.",
     },
     proof: {
-      title: "What you get (and what you don’t)",
+      title: "What you get (and what you don't)",
       bullets: [
         "You get a risk level, severity counts, and one evidence-backed proof finding.",
         "You do not get the complete suppressor backlog or step-by-step remediation plan on this screen.",
@@ -174,12 +171,12 @@ export const LANDINGS: Landing[] = [
         {
           title: "We analyze suppression signals",
           description:
-            "The screen flags crawl/index blockers, canonical miswiring, thin/duplicate patterns, and other negative signals—evidence first.",
+            "The screen flags crawl/index blockers, canonical miswiring, thin/duplicate patterns, and other negative signals-evidence first.",
         },
         {
           title: "You get a proof-backed result",
           description:
-            "You receive RED/AMBER/GREEN, P0–P3 counts, and one proof finding you can validate publicly.",
+            "You receive RED/AMBER/GREEN, P0-P3 counts, and one proof finding you can validate publicly.",
         },
       ],
     },
@@ -187,35 +184,35 @@ export const LANDINGS: Landing[] = [
       title: "Outputs (Tier 1 / public signals)",
       items: [
         "Suppression Risk Level (RED/AMBER/GREEN)",
-        "Counts of findings by severity (P0–P3)",
+        "Counts of findings by severity (P0-P3)",
         "One proof finding (evidence + why it suppresses + how to verify)",
         "Confidence note that clarifies the limits of public signals",
       ],
       note:
-        "For confirmed causes and priorities based on Google’s own data, use the Growth Blocker Audit (Tier 2).",
+        "For confirmed causes and priorities based on Google's own data, use the Growth Blocker Audit (Tier 2).",
     },
     fit: {
       title: "Who this is for",
       goodFit: [
         "You have content but low impressions/clicks",
-        "New pages aren’t indexing or rankings are flat",
+        "New pages aren't indexing or rankings are flat",
         "You suspect a migration, canonical, or noindex issue",
         "You want proof before investing in ads or more content",
       ],
       notAfit: [
         "You want a full remediation plan without a paid audit",
         "Your site is behind authentication (public signals unavailable)",
-        "You’re looking for competitor research or backlink strategy (out of scope here)",
+        "You're looking for competitor research or backlink strategy (out of scope here)",
       ],
     },
     faq: [
       {
         q: "Is this a free audit?",
-        a: "This is a free suppression screen based on public signals only. It’s designed to show whether suppression risk is present and provide one proof finding you can verify. The full Growth Blocker Audit is the paid deliverable that includes the complete backlog and priorities.",
+        a: "This is a free suppression screen based on public signals only. It's designed to show whether suppression risk is present and provide one proof finding you can verify. The full Growth Blocker Audit is the paid deliverable that includes the complete backlog and priorities.",
       },
       {
         q: "What does RED/AMBER/GREEN mean?",
-        a: "It’s a mechanical roll-up of severity counts. RED means there is at least one visibility kill switch (P0) or multiple strong suppressors (P1). AMBER means no P0 exists but meaningful suppressors remain, and GREEN means only moderate or hygiene issues were detected in public signals.",
+        a: "It's a mechanical roll-up of severity counts. RED means there is at least one visibility kill switch (P0) or multiple strong suppressors (P1). AMBER means no P0 exists but meaningful suppressors remain, and GREEN means only moderate or hygiene issues were detected in public signals.",
       },
       {
         q: "Will this tell me exactly how to fix everything?",
@@ -257,17 +254,17 @@ export const LANDINGS: Landing[] = [
     seo: {
       indexable: false,
       canonicalPath: "/landing/growth-blocker-audit/",
-      metaTitle: `Growth Blocker Audit | Find what’s suppressing leads and visibility | ${base.siteName}`,
+      metaTitle: `Growth Blocker Audit | Find what's suppressing leads and visibility | ${base.siteName}`,
       metaDescription:
-        "A deterministic diagnostic that identifies what’s breaking tracking, suppressing visibility, and causing leads to get lost. Get evidence, priorities, and a verification protocol—then decide on Core + Modules.",
+        "A deterministic diagnostic that identifies what's breaking tracking, suppressing visibility, and causing leads to get lost. Get evidence, priorities, and a verification protocol-then decide on next steps.",
       ogImage: "/og/growth-blocker-audit.png",
     },
     hero: {
-      headline: "Find what’s blocking growth—and get a prioritized plan.",
+      headline: "Find what's blocking growth-and get a prioritized plan.",
       subheadline:
         "The Growth Blocker Audit is a paid diagnostic that turns guesswork into a clear, evidence-backed roadmap.",
       bullets: [
-        "Complete P0–P3 backlog with evidence",
+        "Complete P0-P3 backlog with evidence",
         "Prioritized roadmap (48 hours / 2 weeks / 60 days)",
         "Verification protocol to confirm fixes and recovery",
       ],
@@ -281,7 +278,7 @@ export const LANDINGS: Landing[] = [
       secondaryCta: {
         label: "Learn how NexTara works",
         href: "/resources/how-nextara-works/",
-        description: "Core first, then modules—everything stays provable.",
+        description: "AI-powered digital growth built for SMBs.",
         gtmEvent: "nt_gba_how_it_works_click",
       },
     },
@@ -289,8 +286,8 @@ export const LANDINGS: Landing[] = [
       title: "Why this audit exists",
       bullets: [
         "Most teams add tactics before measurement is trustworthy, so nobody can prove what worked.",
-        "This audit identifies what’s suppressing visibility, breaking attribution, and losing leads—based on evidence, not opinions.",
-        "If we’re a fit, Core (DCS) maintains measurement integrity so improvements stay provable.",
+        "This audit identifies what's suppressing visibility, breaking attribution, and losing leads-based on evidence, not opinions.",
+        "If we're a fit, NexTara maintains measurement integrity so improvements stay provable.",
       ],
     },
     howItWorks: {
@@ -299,12 +296,12 @@ export const LANDINGS: Landing[] = [
         {
           title: "We diagnose suppression and leakage",
           description:
-            "We analyze crawl/indexation, quality/trust signals, and conversion paths to find what’s actively holding performance back.",
+            "We analyze crawl/indexation, quality/trust signals, and conversion paths to find what's actively holding performance back.",
         },
         {
           title: "We deliver the prioritized backlog",
           description:
-            "You receive P0–P3 findings with evidence and a timeline-based roadmap to sequence fixes correctly.",
+            "You receive P0-P3 findings with evidence and a timeline-based roadmap to sequence fixes correctly.",
         },
         {
           title: "We define verification",
@@ -316,20 +313,20 @@ export const LANDINGS: Landing[] = [
     deliverables: {
       title: "Deliverables",
       items: [
-        "Full P0–P3 findings backlog with evidence",
+        "Full P0-P3 findings backlog with evidence",
         "Suppression Risk Level roll-up and rationale",
         "Source attribution (how each issue likely entered the stack)",
         "Priority roadmap (48 hours / 2 weeks / 60 days)",
         "Verification protocol (what to check and when)",
-        "Module readiness gating (Core first, then modules based on reality)",
+        "Module readiness gating (foundations first, then modules based on reality)",
       ],
     },
     fit: {
-      title: "Who it’s for",
+      title: "Who it's for",
       goodFit: [
-        "You want clarity on what’s suppressing leads and visibility",
-        "You’ve had a migration, redesign, or tracking changes recently",
-        "You’re spending on ads/content but can’t prove ROI",
+        "You want clarity on what's suppressing leads and visibility",
+        "You've had a migration, redesign, or tracking changes recently",
+        "You're spending on ads/content but can't prove ROI",
         "You want a clean sequence for fixes and next investments",
       ],
       notAfit: [
@@ -341,15 +338,15 @@ export const LANDINGS: Landing[] = [
     faq: [
       {
         q: "How long does the Growth Blocker Audit take?",
-        a: "It’s a fixed-scope diagnostic delivered on a defined timeline. The exact turnaround depends on site size and access, but the output is always a prioritized backlog with verification steps. If you need a faster turnaround, that is scoped explicitly at booking.",
+        a: "It's a fixed-scope diagnostic delivered on a defined timeline. The exact turnaround depends on site size and access, but the output is always a prioritized backlog with verification steps. If you need a faster turnaround, that is scoped explicitly at booking.",
       },
       {
         q: "What happens first?",
-        a: "We start by confirming what inputs are available and what symptoms you’re seeing. Then we diagnose suppression signals and lead-flow breaks using evidence from the site and, if applicable, platform data. Finally, we deliver the backlog and roadmap in a format you can execute against.",
+        a: "We start by confirming what inputs are available and what symptoms you're seeing. Then we diagnose suppression signals and lead-flow breaks using evidence from the site and, if applicable, platform data. Finally, we deliver the backlog and roadmap in a format you can execute against.",
       },
       {
         q: "How do we measure success?",
-        a: "Success is measured by resolving P0/P1 items, validating fixes, and restoring stable crawl/index behavior and lead attribution. The verification protocol ensures you can confirm resolution rather than assume it. If you proceed with Core (DCS), ongoing monitoring prevents regression.",
+        a: "Success is measured by resolving P0/P1 items, validating fixes, and restoring stable crawl/index behavior and lead attribution. The verification protocol ensures you can confirm resolution rather than assume it. If you proceed with NexTara, ongoing monitoring prevents regression.",
       },
       {
         q: "Is this the same as the free suppression screen?",
@@ -366,10 +363,10 @@ export const LANDINGS: Landing[] = [
         gtmEvent: "nt_gba_book_click_bottom",
       },
       secondaryCta: {
-        label: "Learn About Core (DCS)",
-        href: "/services/dcs/",
-        description: "Ongoing measurement system that makes outcomes provable.",
-        gtmEvent: "nt_gba_to_dcs_click_bottom",
+        label: "Explore Our Services",
+        href: "/services/",
+        description: "See how we help SMBs grow with AI-powered digital marketing.",
+        gtmEvent: "nt_gba_to_services_click_bottom",
       },
     },
     tracking: {
@@ -377,131 +374,6 @@ export const LANDINGS: Landing[] = [
       offerKey: "growth_blocker_audit",
       primaryCtaEvent: "nt_gba_book_click",
       secondaryCtaEvent: "nt_gba_how_it_works_click",
-    },
-  },
-
-  {
-    slug: "dcs-core",
-    name: "Digital Control System (Core)",
-    seo: {
-      indexable: false,
-      canonicalPath: "/landing/dcs-core/",
-      metaTitle: `Digital Control System (Core) | Make your marketing provable | ${base.siteName}`,
-      metaDescription:
-        "The Digital Control System is the ongoing tracking and measurement layer that keeps reporting provable. It defines leads, prevents double counting, and fixes drift so Core + Modules can be accountable.",
-      ogImage: "/og/dcs-core.png",
-    },
-    hero: {
-      headline: "Make your marketing provable—then scale what works.",
-      subheadline:
-        "Core (DCS) owns and maintains the tracking layer so leads are counted once, attributed correctly, and reported consistently month to month.",
-      bullets: [
-        "Calls, forms, and bookings tracked correctly (GA4/GTM)",
-        "Lead definitions aligned to your business (no double counting)",
-        "Ongoing monitoring so reporting stays stable as the site changes",
-      ],
-      primaryCta: {
-        label: "Talk to us about Core (DCS)",
-        href: "/contact/?intent=dcs-core",
-        description: "Confirm fit and scope Core for your stack.",
-        gtmEvent: "nt_dcs_core_contact_click",
-      },
-      secondaryCta: {
-        label: "Start with the Growth Blocker Audit",
-        href: "/landing/growth-blocker-audit/",
-        description:
-          "If you need diagnosis first, we’ll map blockers and priorities.",
-        gtmEvent: "nt_dcs_core_to_gba_click",
-      },
-    },
-    proof: {
-      title: "Why Core is required",
-      bullets: [
-        "If tracking isn’t trustworthy, performance claims are opinions—not proof.",
-        "Core prevents regression by detecting drift and fixing measurement breaks as they happen.",
-        "Modules work best when measurement is stable, so optimization is real and repeatable.",
-      ],
-    },
-    howItWorks: {
-      title: "How Core (DCS) works",
-      steps: [
-        {
-          title: "Define what counts as a lead",
-          description:
-            "Calls, forms, and bookings are defined clearly so reporting is consistent and comparable month to month.",
-        },
-        {
-          title: "Implement and validate tracking",
-          description:
-            "We configure GA4/GTM and validate event integrity so leads are attributed correctly without duplication.",
-        },
-        {
-          title: "Monitor, fix drift, and maintain proof",
-          description:
-            "As your site, forms, and campaigns change, Core detects breakage and keeps reporting reliable.",
-        },
-      ],
-    },
-    deliverables: {
-      title: "What Core includes",
-      items: [
-        "GTM container governance and event integrity",
-        "GA4 configuration and QA",
-        "Lead definitions (calls/forms/bookings) and deduplication",
-        "Leak detection: where leads are getting lost in the flow",
-        "Ongoing drift monitoring and regression fixes",
-        "Monthly performance clarity tied to lead actions",
-      ],
-      note:
-        "Core is the foundation. Modules are added after Core proves what’s working and where the bottlenecks are.",
-    },
-    fit: {
-      title: "Fit check",
-      goodFit: [
-        "You want accountability tied to leads, not vanity metrics",
-        "You have multiple lead sources (calls/forms/bookings) and need clean attribution",
-        "You’re investing in growth and want optimization to be real",
-      ],
-      notAfit: [
-        "You want tactics without measurement integrity",
-        "You do not want GTM/GA4 governed as a system",
-        "You want a one-time setup and no ongoing monitoring",
-      ],
-    },
-    faq: [
-      {
-        q: "Is Core a one-time setup?",
-        a: "No. Core is an ongoing system that maintains measurement integrity over time. Websites and campaigns change, and tracking drifts unless it’s actively governed. Core exists to keep your reporting provable month after month.",
-      },
-      {
-        q: "Can I buy modules without Core?",
-        a: "No. Modules depend on measurement integrity to prove ROI and optimize correctly. Without Core, both sides are guessing and accountability breaks down. If you’re not ready for Core, start with the Growth Blocker Audit to diagnose what’s blocking you first.",
-      },
-      {
-        q: "What does “provable” mean in practice?",
-        a: "Provable means every call, form, and booking is counted once, attributed to a source, and reported consistently with stable definitions. When outcomes change, you can explain why using evidence rather than assumptions. That’s the foundation for scaling any module.",
-      },
-    ],
-    finalCta: {
-      title: "If you want proof, start with Core.",
-      primaryCta: {
-        label: "Talk to us about Core (DCS)",
-        href: "/contact/?intent=dcs-core",
-        description: "We’ll confirm fit and map the right next step.",
-        gtmEvent: "nt_dcs_core_contact_click_bottom",
-      },
-      secondaryCta: {
-        label: "Book the Growth Blocker Audit",
-        href: "/landing/growth-blocker-audit/",
-        description: "Diagnose blockers first, then implement Core cleanly.",
-        gtmEvent: "nt_dcs_core_to_gba_click_bottom",
-      },
-    },
-    tracking: {
-      pageType: "landing",
-      offerKey: "dcs_core",
-      primaryCtaEvent: "nt_dcs_core_contact_click",
-      secondaryCtaEvent: "nt_dcs_core_to_gba_click",
     },
   },
 ];
