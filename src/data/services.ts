@@ -152,8 +152,8 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
     faq: [
       { question: "How long does it take?", answer: "30 minutes of your time. You'll receive the video and 1-page summary within 48 hours." },
       { question: "Is this a sales call?", answer: "No. It's a real audit. We show you what's broken. If you want help fixing it, we'll talk options. If not, you keep everything." },
-      { question: "What if I already know what's wrong?", answer: "Then skip this and go straight to our DCS Audit for the full diagnostic and prioritized fix plan." },
-      { question: "What happens after?", answer: "You get a 1-page summary plus video. If you want to go deeper, the next step is typically a DCS Audit or monthly engagement. Your $297 is credited either way." },
+      { question: "What if I already know what's wrong?", answer: "Then skip this and request a consultation to scope the full diagnostic and prioritized fix plan." },
+      { question: "What happens after?", answer: "You get a 1-page summary plus video. If you want to go deeper, the next step is typically a full diagnostic audit or monthly engagement. Your $297 is credited either way." },
       { question: "What if we're not a fit?", answer: "We'll tell you directly. You still get actionable findings and a clear picture of what's broken." },
       { question: "How is this different from a free audit tool?", answer: "Free tools check surface metrics. We look at your actual lead flow, trust signals, and conversion gaps—things tools can't see." },
     ],

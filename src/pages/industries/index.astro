@@ -1,0 +1,127 @@
+---
+/**
+ * /industries/
+ * Industry Hub Page
+ * 
+ * Purpose: Entry point to vertical-specific pages
+ * Conversion: Soft assessment CTA in hero, standard CTA block at close
+ * Tone: Serious, professional, trust-forward
+ * 
+ * Governance:
+ * - No legacy DCS/PromptCore terminology
+ * - No enterprise framing
+ * - CTA routes to /contact/
+ * - Canonical offer: Digital Credibility Assessment
+ * 
+ * Nav: Footer only (per Lexi directive)
+ */
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTitle = "Industries We Serve";
+const pageDescription = "Digital credibility, search readiness, and measurement foundations for defense-adjacent firms and other high-trust organizations.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  
+  <!-- HERO -->
+  <section class="hero hero--industries">
+    <div class="container">
+      <h1>Digital Credibility Built for Your Industry</h1>
+      <p class="hero__subhead">
+        Generic websites underperform in high-trust markets. We help firms 
+        build digital presence that signals capability, supports discovery, 
+        and earns confidence from serious buyers.
+      </p>
+      <a 
+        href="/contact/" 
+        class="btn btn--primary"
+        data-nt-event="industries_cta_assessment"
+      >
+        Request a Digital Credibility Assessment
+      </a>
+    </div>
+  </section>
+
+  <!-- INDUSTRY VERTICAL GRID -->
+  <section class="section section--verticals">
+    <div class="container">
+      <h2>Industries We Serve</h2>
+      <p class="section__intro">
+        We work with firms where digital credibility directly affects 
+        pipeline, partnerships, and buyer confidence.
+      </p>
+      
+      <div class="vertical-grid">
+        
+        <!-- DoD Contractors — Live -->
+        <a href="/industries/dod-contractors/" class="vertical-card">
+          <h3 class="vertical-card__title">DoD Contractors &amp; Defense-Adjacent Firms</h3>
+          <p class="vertical-card__description">
+            Compliance-aware credibility modernization for defense-adjacent firms 
+            where evaluators, primes, and partners assess capability before 
+            the first conversation.
+          </p>
+          <span class="vertical-card__link">Learn more →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY INDUSTRY CONTEXT MATTERS -->
+  <section class="section section--why-industry">
+    <div class="container">
+      <h2>Why Industry Context Matters</h2>
+      <div class="value-grid">
+        
+        <div class="value-block">
+          <h3>Discovery Readiness</h3>
+          <p>
+            Buyers search for capability before they search for vendors. 
+            Your digital presence must surface where contract-relevant 
+            research happens.
+          </p>
+        </div>
+
+        <div class="value-block">
+          <h3>Credibility Architecture</h3>
+          <p>
+            Risk-averse evaluators assess your website as a proxy for 
+            organizational maturity. Structure, clarity, and completeness 
+            signal competence.
+          </p>
+        </div>
+
+        <div class="value-block">
+          <h3>Measurement Maturity</h3>
+          <p>
+            Without telemetry, pipeline contribution remains invisible. 
+            We help firms understand what their digital presence is 
+            actually doing.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BLOCK -->
+  <section class="section section--cta">
+    <div class="container">
+      <h2>Not Sure Where to Start?</h2>
+      <p>
+        A Digital Credibility Assessment gives you a structured review 
+        of your public-facing presence, search readiness, and capability signaling.
+      </p>
+      <a 
+        href="/contact/" 
+        class="btn btn--primary"
+        data-nt-event="industries_cta_assessment_close"
+      >
+        Request an Assessment
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
