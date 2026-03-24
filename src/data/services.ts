@@ -69,6 +69,13 @@ export interface ServicePage {
   audienceFit: string[];           // "Who it's for" (3-5 items)
   audienceNotFit: string[];        // "Not for" (2-4 items)
   
+  // === Industry Context (optional) ===
+  industryContext?: {
+    text: string;
+    linkText: string;
+    linkHref: string;
+  };
+
   // === Deliverables Section ===
   deliverables: Deliverable[];     // "What you get" (3-6 items)
   
@@ -128,6 +135,11 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       "Anyone looking for a full technical SEO crawl or deep keyword research",
       "Businesses not ready to act on findings within 30–60 days",
     ],
+    industryContext: {
+      text: "This service is particularly relevant for DoD contractors and defense-adjacent firms where digital credibility directly impacts evaluator confidence and teaming opportunities.",
+      linkText: "Learn about our work with defense-adjacent firms",
+      linkHref: "/industries/dod-contractors/",
+    },
     deliverables: [
       { title: "Live Screen-Share Audit", description: "30 minutes together (or recorded) reviewing your digital presence" },
       { title: "Video Walkthrough", description: "8–12 minute recording of exactly what we found, in plain English" },
@@ -185,6 +197,11 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       "Those who want vanity dashboards without data integrity",
       "Businesses not ready to enforce tagging discipline",
     ],
+    industryContext: {
+      text: "Defense contractors benefit from measurement architecture that provides auditable visibility into pipeline contribution—critical for firms operating in compliance-conscious environments.",
+      linkText: "Learn about our work with defense-adjacent firms",
+      linkHref: "/industries/dod-contractors/",
+    },
     deliverables: [
       { title: "GTM Container Audit", description: "Full inventory of tags, triggers, and variables with health assessment" },
       { title: "Measurement Plan", description: "Documented event taxonomy aligned to business KPIs" },
@@ -233,6 +250,11 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       "Those expecting overnight ranking jumps from keyword stuffing",
       "Businesses not willing to invest in technical foundations",
     ],
+    industryContext: {
+      text: "For defense-adjacent firms, search readiness determines whether contract-relevant capabilities surface when evaluators research potential partners.",
+      linkText: "Learn about our work with defense-adjacent firms",
+      linkHref: "/industries/dod-contractors/",
+    },
     deliverables: [
       { title: "Indexing Audit", description: "Current state assessment of crawlability, indexation, and coverage gaps" },
       { title: "Sitemap Architecture", description: "Properly segmented XML sitemaps submitted to Search Console" },
@@ -281,6 +303,11 @@ export const SERVICES: Record<ServiceSlug, ServicePage> = {
       "Those not ready to change their forms or landing pages",
       "Businesses without traffic to convert",
     ],
+    industryContext: {
+      text: "GovCon firms need structured conversion pathways designed for professional buyer journeys—not consumer funnels—where trust and clarity drive engagement.",
+      linkText: "Learn about our work with defense-adjacent firms",
+      linkHref: "/industries/dod-contractors/",
+    },
     deliverables: [
       { title: "Conversion Audit", description: "Current funnel assessment with drop-off analysis" },
       { title: "Funnel Architecture", description: "Designed conversion paths with clear stage definitions" },
