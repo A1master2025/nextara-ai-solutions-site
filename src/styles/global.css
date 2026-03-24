@@ -500,6 +500,7 @@ a:focus-visible {
 
 .section--cta h2 {
   color: var(--brand-surface);
+  margin-bottom: 1rem;
 }
 
 .section--cta p {
